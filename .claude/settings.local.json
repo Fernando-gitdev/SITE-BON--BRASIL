@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/c/Users/Fernando/AppData/Local/Temp/claude/c--Users-Fernando-Desktop-SITE-BON--BRASIL/9e8861dd-c201-42a8-8a32-ef3aad1497c3/scratchpad\")",
+      "Read(//c/Users/Fernando/AppData/Local/Temp/claude/c--Users-Fernando-Desktop-SITE-BON--BRASIL/9e8861dd-c201-42a8-8a32-ef3aad1497c3/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Read(//c/Users/Fernando/AppData/Local/Temp/claude/c--Users-Fernando-Desktop-SITE-BON--BRASIL/9e8861dd-c201-42a8-8a32-ef3aad1497c3/scratchpad/**)",
+      "Bash(node audio_check.js)"
+    ]
+  }
+}
