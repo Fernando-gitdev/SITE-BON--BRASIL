@@ -1,4 +1,6 @@
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
+import LogoMarquee from '@/components/ui/logo-marquee';
+import SobreVideo from './sobre-video';
 
 export default function Sobre() {
   return (
@@ -14,25 +16,14 @@ export default function Sobre() {
           </>
         }
       >
-        <video
-          src="/assets/video-lançamento-bonebrasil.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="mx-auto h-full w-full rounded-2xl object-cover"
-        />
+        <SobreVideo />
       </ContainerScroll>
 
-      <div className="container section-padding" style={{ paddingTop: 0 }}>
-        <div className="section-header align-center">
-          <p className="section-subtitle">
-            A feira nacional idealizada para fortalecer a produção de bonés,
-            ampliar negócios e destacar Serra Negra do Norte no cenário
-            brasileiro.
-          </p>
-        </div>
+      <div className="-mt-8 md:-mt-24 mb-16 md:mb-28">
+        <LogoMarquee />
+      </div>
 
+      <div className="container section-padding" style={{ paddingTop: 0 }}>
         <div className="stats-grid">
           <div className="stat-card reveal-item" data-delay="100">
             <div className="stat-icon-wrapper">
