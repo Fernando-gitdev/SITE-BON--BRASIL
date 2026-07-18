@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 234.76 192.38">
+  <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+        stroke: #747474;
+        stroke-miterlimit: 10;
+        stroke-width: 7px;
+      }
+
+      .st1 {
+        isolation: isolate;
+      }
+    </style>
+  </defs>
+  <g class="st1">
+    <path class="st0" d="M103.86,142.86c0,27.56-16.12,46.02-50.18,46.02S3.5,170.42,3.5,142.86V49.52C3.5,21.96,19.62,3.5,53.68,3.5s50.18,18.46,50.18,46.02v93.34ZM41.98,141.56c0,8.06,3.38,12.74,11.7,12.74s11.7-4.68,11.7-12.74V50.82c0-8.06-3.38-12.74-11.7-12.74s-11.7,4.68-11.7,12.74v90.74Z"/>
+    <path class="st0" d="M118.16,122.58L154.56,6.1h62.14v118.04h14.56v31.72h-14.56v30.42h-38.22v-30.42h-60.32v-33.28ZM180.3,124.14v-58.76c0-19,.42-37.37.51-40.78,0-.08-.11-.09-.13-.02-.84,3.14-5.23,19.59-11.3,41.05l-16.64,58.5h27.56Z"/>
+  </g>
+</svg>

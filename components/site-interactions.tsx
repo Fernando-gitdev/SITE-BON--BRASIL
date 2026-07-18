@@ -4,9 +4,8 @@ import { useEffect } from 'react';
 
 /**
  * Site-wide vanilla-DOM interactions that don't need to own React state:
- * magnetic hover on buttons/logo, navbar scroll compression, the
- * IntersectionObserver-driven reveal-on-scroll system, and the animated
- * stat counters. Mounted once near the root of the page.
+ * magnetic hover on buttons/logo, navbar scroll compression, and the
+ * animated stat counters. Mounted once near the root of the page.
  */
 export default function SiteInteractions() {
   useEffect(() => {
@@ -59,24 +58,6 @@ export default function SiteInteractions() {
     window.addEventListener('scroll', onScroll);
     onScroll();
 
-    // Reveal-on-scroll + timeline node highlight
-    const revealItems = document.querySelectorAll('.reveal-item, .timeline-item');
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            if (entry.target.classList.contains('timeline-item')) {
-              entry.target.classList.add('active-timeline');
-            }
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -50px 0px' }
-    );
-    revealItems.forEach((item) => revealObserver.observe(item));
-
     // Progressive numeric counters
     const statNumbers = document.querySelectorAll<HTMLElement>('.stat-number');
 
@@ -128,7 +109,6 @@ export default function SiteInteractions() {
     return () => {
       cleanups.forEach((fn) => fn());
       window.removeEventListener('scroll', onScroll);
-      revealObserver.disconnect();
       statsObserver.disconnect();
     };
   }, []);

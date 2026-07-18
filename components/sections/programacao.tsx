@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Reveal from '@/components/ui/reveal';
 
 const ITEMS = [
   {
     side: 'left',
-    delay: undefined as string | undefined,
     tag: 'Exposição',
     tagAccent: false,
     title: 'Exposição de Produtos e Tendências',
@@ -14,7 +14,6 @@ const ITEMS = [
   },
   {
     side: 'right',
-    delay: '100',
     tag: 'Negócios',
     tagAccent: true,
     title: 'Rodadas de Negócios Diretas',
@@ -23,7 +22,6 @@ const ITEMS = [
   },
   {
     side: 'left',
-    delay: '200',
     tag: 'Capacitação',
     tagAccent: false,
     title: 'Palestras & Painéis Temáticos',
@@ -32,7 +30,6 @@ const ITEMS = [
   },
   {
     side: 'right',
-    delay: '300',
     tag: 'Técnico',
     tagAccent: true,
     title: 'Workshops Práticos',
@@ -41,7 +38,6 @@ const ITEMS = [
   },
   {
     side: 'left',
-    delay: '400',
     tag: 'Fomento',
     tagAccent: false,
     title: 'Balcão de Crédito & Financiamento',
@@ -85,14 +81,14 @@ export default function Programacao() {
     <section id="programacao" className="programacao-section section-padding">
       <div className="section-glow-orb orb-a" aria-hidden="true"></div>
       <div className="section-glow-orb orb-b" aria-hidden="true"></div>
-      <div className="container">
-        <div className="section-header align-center">
+      <div className="site-container">
+        <Reveal className="section-header align-center">
           <span className="section-tagline">Programação</span>
           <h2>Sua Agenda de Oportunidades</h2>
           <p className="section-subtitle">
             Networking, negócios e aprendizado prático — tudo na mesma agenda.
           </p>
-        </div>
+        </Reveal>
 
         <div className="timeline-container" ref={containerRef}>
           <div className="timeline-line">
@@ -100,11 +96,11 @@ export default function Programacao() {
           </div>
 
           {ITEMS.map((item, i) => (
-            <div
+            <Reveal
               className="timeline-item"
               data-side={item.side}
-              data-delay={item.delay}
-              key={i}
+              delay={(i % 2) * 0.1}
+              key={item.title}
             >
               <div className="timeline-marker">{i + 1}</div>
               <div className="timeline-content">
@@ -115,7 +111,7 @@ export default function Programacao() {
                 <p>{item.desc}</p>
                 <span className="timeline-time">{item.time}</span>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { ContainerScroll } from '@/components/ui/container-scroll-animation';
-import LogoMarquee from '@/components/ui/logo-marquee';
+import Reveal from '@/components/ui/reveal';
 import SobreVideo from './sobre-video';
 
 export default function Sobre() {
@@ -19,13 +19,9 @@ export default function Sobre() {
         <SobreVideo />
       </ContainerScroll>
 
-      <div className="-mt-8 md:-mt-24 mb-16 md:mb-28">
-        <LogoMarquee />
-      </div>
-
-      <div className="container section-padding" style={{ paddingTop: 0 }}>
+      <div className="site-container section-padding" style={{ paddingTop: 0 }}>
         <div className="stats-grid">
-          <div className="stat-card reveal-item" data-delay="100">
+          <Reveal className="stat-card" delay={0.1}>
             <div className="stat-icon-wrapper">
               <svg
                 className="stat-icon"
@@ -49,9 +45,9 @@ export default function Sobre() {
               Estimativa de agentes produtivos, profissionais e parceiros
               conectados na feira.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="stat-card reveal-item highlight-card" data-delay="200">
+          <Reveal className="stat-card highlight-card" delay={0.2}>
             <div className="stat-icon-wrapper">
               <svg
                 className="stat-icon"
@@ -76,9 +72,9 @@ export default function Sobre() {
               Força de trabalho direta impulsionada e valorizada pela
               relevância do polo produtivo.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="stat-card reveal-item" data-delay="300">
+          <Reveal className="stat-card" delay={0.3}>
             <div className="stat-icon-wrapper">
               <svg
                 className="stat-icon"
@@ -102,11 +98,11 @@ export default function Sobre() {
               Fábricas ativas no polo com forte potencial comercial e
               produtividade nacional.
             </p>
-          </div>
+          </Reveal>
         </div>
 
         <div className="sobre-dynamic-content">
-          <div className="sobre-text-block reveal-item">
+          <Reveal className="sobre-text-block">
             <div className="glow-border-box">
               <h3>Por que Serra Negra do Norte?</h3>
               <p>
@@ -117,8 +113,8 @@ export default function Sobre() {
               </p>
               <div className="pulse-line"></div>
             </div>
-          </div>
-          <div className="sobre-text-block reveal-item" data-delay="150">
+          </Reveal>
+          <Reveal className="sobre-text-block" delay={0.15}>
             <div className="glow-border-box accent-box">
               <h3>Nossa Proposta de Valor</h3>
               <p>
@@ -129,7 +125,7 @@ export default function Sobre() {
               </p>
               <div className="pulse-line"></div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="container footer-container">
+      <div className="site-container footer-container">
         <div className="footer-brand">
           <a href="#" className="logo">
             <span className="logo-accent">BONÉ</span> BRASIL{' '}
@@ -49,7 +49,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <div className="container footer-bottom-container">
+        <div className="site-container footer-bottom-container">
           <p className="copyright">
             &copy; 2026 BONÉ BRASIL. Todos os direitos reservados.
           </p>

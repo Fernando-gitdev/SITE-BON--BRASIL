@@ -1,12 +1,13 @@
 import Image from 'next/image';
+import Reveal from '@/components/ui/reveal';
 
 export default function Local() {
   return (
     <section id="local" className="local-section section-padding">
       <div className="section-glow-orb orb-a" aria-hidden="true"></div>
       <div className="section-glow-orb orb-b" aria-hidden="true"></div>
-      <div className="container local-grid-container">
-        <div className="local-content reveal-item">
+      <div className="site-container local-grid-container">
+        <Reveal className="local-content">
           <span className="section-tagline">O Polo Industrial</span>
           <h2>Serra Negra do Norte/RN</h2>
           <p className="local-lead">
@@ -39,9 +40,9 @@ export default function Local() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="local-graphic reveal-item" data-delay="200">
+        <Reveal className="local-graphic" delay={0.2}>
           <div className="glow-map-container">
             <Image
               src="/assets/production_glow.png"
@@ -58,7 +59,7 @@ export default function Local() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

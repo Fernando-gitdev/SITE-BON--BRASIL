@@ -1,4 +1,6 @@
-const CARDS = [
+import Reveal from '@/components/ui/reveal';
+
+const ITEMS = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -9,9 +11,7 @@ const CARDS = [
     ),
     title: 'Polo Especializado',
     desc: 'O único evento do Brasil 100% dedicado à cadeia do boné.',
-    link: 'Identidade Local',
-    delay: undefined as string | undefined,
-    accent: false,
+    numberSrc: '/assets/numero-01.svg',
   },
   {
     icon: (
@@ -24,9 +24,7 @@ const CARDS = [
     ),
     title: 'Rodadas de Negócios',
     desc: 'Fature mais conectando sua fábrica direto a lojistas e distribuidores.',
-    link: 'Geração de Contatos',
-    delay: '100',
-    accent: true,
+    numberSrc: '/assets/numero-02.svg',
   },
   {
     icon: (
@@ -37,9 +35,7 @@ const CARDS = [
     ),
     title: 'Tendências e Inovação',
     desc: 'Veja de perto as máquinas e tecidos que vão definir a próxima temporada.',
-    link: 'Evolução do Setor',
-    delay: '200',
-    accent: false,
+    numberSrc: '/assets/numero-03.svg',
   },
   {
     icon: (
@@ -51,9 +47,7 @@ const CARDS = [
     ),
     title: 'Capacitação & Crédito',
     desc: 'Saia com crédito facilitado e conhecimento pra fazer sua fábrica crescer.',
-    link: 'Crédito & Apoio',
-    delay: '300',
-    accent: false,
+    numberSrc: '/assets/numero-04.svg',
   },
 ];
 
@@ -62,29 +56,30 @@ export default function Diferenciais() {
     <section id="diferenciais" className="diferenciais-section section-padding">
       <div className="section-glow-orb orb-a" aria-hidden="true"></div>
       <div className="section-glow-orb orb-b" aria-hidden="true"></div>
-      <div className="container">
-        <div className="section-header align-center">
+      <div className="site-container diferenciais-container">
+        <Reveal className="section-header">
           <span className="section-tagline">Diferenciais</span>
           <h2>O Que Você Ganha Aqui</h2>
-          <p className="section-subtitle">
-            Tudo que sua empresa precisa pra vender mais, em um só lugar.
-          </p>
-        </div>
+        </Reveal>
 
-        <div className="diferenciais-grid">
-          {CARDS.map((card) => (
-            <div
-              className={`spotlight-card reveal-item ${card.accent ? 'accent-flip' : ''}`}
-              data-delay={card.delay}
-              key={card.title}
-            >
-              <div className="card-content">
-                <div className="card-icon">{card.icon}</div>
-                <h3>{card.title}</h3>
-                <p>{card.desc}</p>
-                <span className="card-link">{card.link}</span>
+        <div className="feature-list">
+          {ITEMS.map((item, i) => (
+            <Reveal key={item.title} delay={i * 0.1}>
+              <div className="feature-row">
+                <span
+                  className="feature-row-index"
+                  style={{
+                    WebkitMaskImage: `url('${item.numberSrc}')`,
+                    maskImage: `url('${item.numberSrc}')`,
+                  }}
+                />
+                <div className="feature-row-icon">{item.icon}</div>
+                <div className="feature-row-text">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

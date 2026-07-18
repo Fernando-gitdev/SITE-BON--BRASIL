@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -44,7 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }
