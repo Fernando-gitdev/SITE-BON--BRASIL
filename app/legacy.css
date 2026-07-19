@@ -19,6 +19,19 @@
     --border-medium: rgba(255, 255, 255, 0.12);
     --divider: rgba(255, 255, 255, 0.05);
 
+    /* Glassmorphism surface — frosted panel over the section's own
+       background/glow-orbs, echoing the navbar's existing glass treatment. */
+    --glass-bg: rgba(255, 255, 255, 0.045);
+    --glass-bg-hover: rgba(255, 255, 255, 0.07);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(20px);
+
+    /* Soft dual-tone shadow (neumorphic-inspired) for buttons/icon chips —
+       used sparingly as a finishing touch, not as a full panel style, so it
+       doesn't wash out contrast against the dark background. */
+    --neu-shadow: 5px 5px 12px rgba(0, 0, 0, 0.35), -3px -3px 10px rgba(255, 255, 255, 0.03);
+    --neu-shadow-inset: inset 3px 3px 8px rgba(0, 0, 0, 0.4), inset -2px -2px 6px rgba(255, 255, 255, 0.04);
+
     /* Layout Variables */
     --nav-height: 92px;
     --container-width: 1180px;
@@ -53,22 +66,6 @@ body {
     overflow-x: hidden;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
-}
-
-/* Subtle grid texture */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
-    background-size: 60px 60px;
-    z-index: 0;
-    pointer-events: none;
 }
 
 /* Film-grain noise overlay, blended over the whole page so every section
@@ -206,6 +203,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-primary {
     background-color: var(--brand-accent);
     color: var(--text-dark);
+    box-shadow: var(--neu-shadow);
 }
 
 .btn-primary span {
@@ -475,7 +473,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .hero-cap-anchor {
-        width: min(120vw, 800px);
+        width: min(150vw, 800px);
         bottom: 150px;
     }
 }
@@ -558,8 +556,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .stat-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 36px 28px;
     text-align: center;
@@ -570,7 +570,7 @@ h1, h2, h3, h4, h5, h6 {
 .stat-card:hover {
     border-color: var(--border-medium);
     transform: translateY(-4px);
-    background-color: var(--bg-surface);
+    background-color: var(--glass-bg-hover);
 }
 
 .highlight-card {
@@ -586,6 +586,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 56px;
     height: 56px;
     background-color: rgba(184, 216, 50, 0.07);
+    box-shadow: var(--neu-shadow-inset);
     border-radius: 10px;
     display: inline-flex;
     align-items: center;
@@ -636,8 +637,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glow-border-box {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: 12px;
     padding: 36px;
     height: 100%;
@@ -660,7 +663,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .glow-border-box:hover {
     border-color: var(--border-medium);
-    background-color: var(--bg-surface);
+    background-color: var(--glass-bg-hover);
 }
 
 /* Thin accent bar at bottom */
@@ -769,6 +772,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 56px;
     background-color: rgba(184, 216, 50, 0.08);
     border: 1px solid rgba(184, 216, 50, 0.12);
+    box-shadow: var(--neu-shadow-inset);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -820,8 +824,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .impact-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: 32px;
     padding: 56px;
     display: grid;
@@ -937,6 +943,7 @@ h1, h2, h3, h4, h5, h6 {
     height: 48px;
     border-radius: 50%;
     background-color: var(--bg-surface);
+    box-shadow: var(--neu-shadow-inset);
     border: 1.5px solid var(--border-medium);
     position: absolute;
     top: 0;
@@ -959,8 +966,10 @@ h1, h2, h3, h4, h5, h6 {
 .timeline-content {
     width: 90%;
     padding: 36px;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: 14px;
     transition: var(--transition-smooth);
 }
@@ -1072,6 +1081,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 44px;
     height: 44px;
     background-color: rgba(184, 216, 50, 0.07);
+    box-shadow: var(--neu-shadow-inset);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -1173,8 +1183,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .form-wrapper {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
     border-radius: 14px;
     padding: 48px;
     position: relative;
@@ -1346,4 +1358,49 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
     .section-glow-orb { display: none; }
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP CTA
+   ========================================================================== */
+
+.floating-whatsapp {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 20px 14px 14px;
+    background-color: var(--brand-accent);
+    color: var(--text-dark);
+    border-radius: 100px;
+    box-shadow: var(--neu-shadow), 0 10px 28px rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.floating-whatsapp:hover {
+    background-color: #c8e83e;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.floating-whatsapp svg {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.floating-whatsapp-label { white-space: nowrap; }
+
+@media (max-width: 640px) {
+    .floating-whatsapp {
+        bottom: 16px;
+        right: 16px;
+        padding: 14px;
+    }
+    .floating-whatsapp-label { display: none; }
 }

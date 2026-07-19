@@ -41,10 +41,7 @@ export default function Sobre() {
               </span>
             </div>
             <h3 className="stat-title">Pessoas Impactadas</h3>
-            <p className="stat-desc">
-              Estimativa de agentes produtivos, profissionais e parceiros
-              conectados na feira.
-            </p>
+            <p className="stat-desc">Profissionais e parceiros conectados na feira.</p>
           </Reveal>
 
           <Reveal className="stat-card highlight-card" delay={0.2}>
@@ -68,10 +65,7 @@ export default function Sobre() {
               </span>
             </div>
             <h3 className="stat-title">Trabalhadores no Polo</h3>
-            <p className="stat-desc">
-              Força de trabalho direta impulsionada e valorizada pela
-              relevância do polo produtivo.
-            </p>
+            <p className="stat-desc">Mão de obra ativa no polo produtivo.</p>
           </Reveal>
 
           <Reveal className="stat-card" delay={0.3}>
@@ -94,10 +88,7 @@ export default function Sobre() {
               </span>
             </div>
             <h3 className="stat-title">Fábricas Locais</h3>
-            <p className="stat-desc">
-              Fábricas ativas no polo com forte potencial comercial e
-              produtividade nacional.
-            </p>
+            <p className="stat-desc">Fábricas ativas no polo, prontas pra crescer.</p>
           </Reveal>
         </div>
 
@@ -106,10 +97,8 @@ export default function Sobre() {
             <div className="glow-border-box">
               <h3>Por que Serra Negra do Norte?</h3>
               <p>
-                Serra Negra do Norte/RN destaca-se como um dos maiores polos
-                boneleiros do país. O evento surge estrategicamente para
-                integrar este ecossistema, gerando oportunidades de negócios,
-                acesso a crédito e facilitando novos mercados.
+                O maior polo boneleiro do país, reunido num só lugar: negócios,
+                crédito e novos mercados em uma única visita.
               </p>
               <div className="pulse-line"></div>
             </div>
@@ -118,10 +107,8 @@ export default function Sobre() {
             <div className="glow-border-box accent-box">
               <h3>Nossa Proposta de Valor</h3>
               <p>
-                Transformar a vocação produtiva local em vitrine nacional. A
-                feira conecta diretamente quem produz a quem compra,
-                promovendo networking, inovação, tendências e fomento direto
-                para expandir fronteiras comerciais.
+                Conectamos direto quem produz a quem compra — networking,
+                tendências e negócio fechado.
               </p>
               <div className="pulse-line"></div>
             </div>

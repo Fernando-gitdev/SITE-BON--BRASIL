@@ -18,7 +18,7 @@ export default function Publico() {
           </div>
           <div className="impact-card-media">
             <Image
-              src="/assets/production_glow.png"
+              src="/assets/imagem-secao-oportunidade.jpg"
               alt="Produção do polo boneleiro de Serra Negra do Norte"
               fill
               className="impact-card-img"

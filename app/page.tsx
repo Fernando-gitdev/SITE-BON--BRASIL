@@ -8,6 +8,7 @@ import Local from '@/components/sections/local';
 import Inscricao from '@/components/sections/inscricao';
 import Footer from '@/components/sections/footer';
 import SiteInteractions from '@/components/site-interactions';
+import FloatingWhatsapp from '@/components/floating-whatsapp';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
       <Footer />
       <SiteInteractions />
+      <FloatingWhatsapp />
     </>
   );
 }

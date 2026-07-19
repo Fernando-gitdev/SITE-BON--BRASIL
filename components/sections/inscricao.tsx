@@ -1,8 +1,5 @@
 import Reveal from '@/components/ui/reveal';
-
-const WHATSAPP_NUMBER = '558487896233';
-const WHATSAPP_MESSAGE = 'Olá, quero adquirir meu espaço na feira';
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+import { WHATSAPP_URL } from '@/lib/whatsapp';
 
 export default function Inscricao() {
   return (
@@ -14,8 +11,8 @@ export default function Inscricao() {
           <span className="section-tagline">Vagas Limitadas</span>
           <h2>Garanta Seu Lote Promocional</h2>
           <p className="section-subtitle">
-            Condições especiais valem só para os primeiros inscritos.
-            Preencha e assegure sua vaga na BONÉ BRASIL 2026.
+            Condições especiais só para os primeiros — fale agora e garanta
+            seu espaço.
           </p>
         </Reveal>
 
