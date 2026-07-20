@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "800", "900"],
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${outfit.variable} ${plusJakartaSans.variable}`}>
+    <html lang="pt-BR" className={poppins.variable}>
       <body>
         <SmoothScroll>{children}</SmoothScroll>
       </body>

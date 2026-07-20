@@ -4,7 +4,6 @@ import Marquee from '@/components/sections/marquee';
 import Apresentacao from '@/components/sections/apresentacao';
 import Pilares from '@/components/sections/pilares';
 import Numeros from '@/components/sections/numeros';
-import Processo from '@/components/sections/processo';
 import Apoio from '@/components/sections/apoio';
 import Contato from '@/components/sections/contato';
 import Footer from '@/components/sections/footer';
@@ -21,7 +20,6 @@ export default function Home() {
         <Apresentacao />
         <Pilares />
         <Numeros />
-        <Processo />
         <Apoio />
         <Contato />
       </main>

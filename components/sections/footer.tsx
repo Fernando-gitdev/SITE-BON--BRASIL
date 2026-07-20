@@ -26,7 +26,7 @@ export default function Footer() {
                 <a href="#numeros">Números</a>
               </li>
               <li>
-                <a href="#processo">Processo</a>
+                <a href="/programacao">Programação</a>
               </li>
             </ul>
           </div>

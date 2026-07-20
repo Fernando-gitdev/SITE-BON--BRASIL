@@ -36,7 +36,7 @@ export default function Numeros() {
               </svg>
             </div>
             <div className="stat-number-wrapper">
-              <span className="stat-number" data-target="2600">0</span>
+              <span className="stat-number" data-target="1600">0</span>
             </div>
             <h3 className="stat-title">Trabalhadores no Polo</h3>
             <p className="stat-desc">Mão de obra ativa e especializada em Serra Negra do Norte/RN.</p>
@@ -51,7 +51,7 @@ export default function Numeros() {
               </svg>
             </div>
             <div className="stat-number-wrapper">
-              <span className="stat-number" data-target="130">0</span>
+              <span className="stat-number" data-target="50">0</span>
             </div>
             <h3 className="stat-title">Fábricas Locais</h3>
             <p className="stat-desc">Fábricas ativas no polo, prontas pra crescer com o mercado nacional.</p>

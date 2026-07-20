@@ -2,10 +2,10 @@ import Reveal from '@/components/ui/reveal';
 import SobreVideo from './sobre-video';
 
 const WORDS = [
-  { text: 'Produção', muted: false },
-  { text: 'escala.', muted: false },
-  { text: 'Isolamento', muted: true },
-  { text: 'não.', muted: true },
+  { text: 'Potência', muted: false },
+  { text: 'local.', muted: false },
+  { text: 'Conexão', muted: true },
+  { text: 'nacional.', muted: true },
 ];
 
 export default function Apresentacao() {
@@ -25,9 +25,8 @@ export default function Apresentacao() {
 
       <Reveal delay={0.3}>
         <p className="apresentacao-lead">
-          Cada fábrica do polo já domina a produção. A BONÉ BRASIL 2026 é o
-          palco pra transformar essa capacidade em negócio, rodadas
-          comerciais e visibilidade nacional.
+          A BONÉ BRASIL 2026 transforma a capacidade produtiva do polo em
+          negócio, rodadas comerciais e visibilidade nacional.
         </p>
       </Reveal>
 
@@ -39,7 +38,7 @@ export default function Apresentacao() {
       </Reveal>
 
       <Reveal delay={0.55}>
-        <a href="#processo" className="btn btn-primary apresentacao-cta">
+        <a href="#pilares" className="btn btn-primary apresentacao-cta">
           <span>Ver como funciona</span>
           <div className="btn-glow-effect"></div>
         </a>
