@@ -17,16 +17,16 @@ export default function Footer() {
             <h5 className="footer-title">Navegação</h5>
             <ul className="footer-links">
               <li>
-                <a href="#sobre">Sobre o Evento</a>
+                <a href="#apresentacao">Sobre o Evento</a>
               </li>
               <li>
-                <a href="#diferenciais">Diferenciais</a>
+                <a href="#pilares">Pilares</a>
               </li>
               <li>
-                <a href="#publico">Oportunidade</a>
+                <a href="#numeros">Números</a>
               </li>
               <li>
-                <a href="#programacao">Programação</a>
+                <a href="#processo">Processo</a>
               </li>
             </ul>
           </div>

@@ -45,6 +45,22 @@ export default function SiteInteractions() {
       });
     });
 
+    // Hero orb parallax: drifts opposite-ish to the cursor within the hero
+    const hero = document.getElementById('hero');
+    const orb = document.querySelector<HTMLElement>('.hero-orb');
+    let onOrbMove: ((e: MouseEvent) => void) | null = null;
+    if (hero && orb && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      onOrbMove = (e: MouseEvent) => {
+        const rect = hero.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        requestAnimationFrame(() => {
+          orb.style.transform = `translate(${px * 24}px, ${py * 18}px)`;
+        });
+      };
+      hero.addEventListener('mousemove', onOrbMove);
+    }
+
     // Navbar scroll compression
     const navbar = document.getElementById('navbar');
     const onScroll = () => {
@@ -110,6 +126,7 @@ export default function SiteInteractions() {
       cleanups.forEach((fn) => fn());
       window.removeEventListener('scroll', onScroll);
       statsObserver.disconnect();
+      if (hero && onOrbMove) hero.removeEventListener('mousemove', onOrbMove);
     };
   }, []);
 

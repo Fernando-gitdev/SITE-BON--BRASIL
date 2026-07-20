@@ -6,47 +6,39 @@ import Reveal from '@/components/ui/reveal';
 const ITEMS = [
   {
     side: 'left',
-    tag: 'Exposição',
+    tag: 'Chegada',
     tagAccent: false,
-    title: 'Exposição de Produtos e Tendências',
-    desc: 'Os últimos lançamentos em bonés, tecidos e bordados, todos os dias.',
-    time: 'Atividade Diária',
+    title: 'Credenciamento e Recepção',
+    desc: 'Acesso rápido à exposição, sem fila, direto pro chão de fábrica.',
+    time: 'Abertura Diária',
   },
   {
     side: 'right',
     tag: 'Negócios',
     tagAccent: true,
-    title: 'Rodadas de Negócios Diretas',
-    desc: 'Fabricantes e compradores fechando negócio, cara a cara.',
+    title: 'Exposição e Rodadas de Negócios',
+    desc: 'Visite os estandes das fábricas e feche negócio direto com quem produz.',
     time: 'Sessões Exclusivas',
   },
   {
     side: 'left',
     tag: 'Capacitação',
     tagAccent: false,
-    title: 'Palestras & Painéis Temáticos',
-    desc: 'Especialistas em moda, exportação e vendas digitais, no mesmo palco.',
+    title: 'Palestras e Painéis Temáticos',
+    desc: 'Especialistas em moda, exportação e vendas digitais, no mesmo palco de quem produz.',
     time: 'Auditório Principal',
   },
   {
     side: 'right',
-    tag: 'Técnico',
-    tagAccent: true,
-    title: 'Workshops Práticos',
-    desc: 'Mão na massa: regulagem de máquinas, produtividade e modelagem.',
-    time: 'Laboratório de Inovação',
-  },
-  {
-    side: 'left',
     tag: 'Fomento',
-    tagAccent: false,
-    title: 'Balcão de Crédito & Financiamento',
-    desc: 'Bancos e fomento prontos pra financiar sua próxima máquina.',
+    tagAccent: true,
+    title: 'Balcão de Crédito e Encerramento',
+    desc: 'Instituições financeiras prontas pra financiar o próximo passo da sua fábrica.',
     time: 'Espaço Financeiro',
   },
 ];
 
-export default function Programacao() {
+export default function Processo() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const progressRef = useRef<HTMLDivElement | null>(null);
 
@@ -78,35 +70,26 @@ export default function Programacao() {
   }, []);
 
   return (
-    <section id="programacao" className="programacao-section section-padding">
-      <div className="section-glow-orb orb-a" aria-hidden="true"></div>
-      <div className="section-glow-orb orb-b" aria-hidden="true"></div>
+    <section id="processo" aria-label="Processo" className="processo-section section-padding">
       <div className="site-container">
         <Reveal className="section-header align-center">
-          <span className="section-tagline">Programação</span>
-          <h2>Sua Agenda de Oportunidades</h2>
+          <span className="section-tagline">03 · Processo</span>
+          <h2>Sua Jornada na Feira</h2>
           <p className="section-subtitle">
-            Networking, negócios e aprendizado prático — tudo na mesma agenda.
+            Da chegada ao negócio fechado, um fluxo pensado pra gerar resultado no mesmo dia.
           </p>
         </Reveal>
 
         <div className="timeline-container" ref={containerRef}>
           <div className="timeline-line">
-            <div className="timeline-progress" id="timelineProgress" ref={progressRef}></div>
+            <div className="timeline-progress" ref={progressRef}></div>
           </div>
 
           {ITEMS.map((item, i) => (
-            <Reveal
-              className="timeline-item"
-              data-side={item.side}
-              delay={(i % 2) * 0.1}
-              key={item.title}
-            >
+            <Reveal className="timeline-item" data-side={item.side} delay={(i % 2) * 0.1} key={item.title}>
               <div className="timeline-marker">{i + 1}</div>
               <div className="timeline-content">
-                <span className={`timeline-tag ${item.tagAccent ? 'tag-accent' : ''}`}>
-                  {item.tag}
-                </span>
+                <span className={`timeline-tag ${item.tagAccent ? 'tag-accent' : ''}`}>{item.tag}</span>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
                 <span className="timeline-time">{item.time}</span>

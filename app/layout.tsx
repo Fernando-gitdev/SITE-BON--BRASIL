@@ -16,7 +16,8 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "BONÉ BRASIL 2026 — Feira Nacional da Cadeia Produtiva do Boné",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "BONÉ BRASIL 2026: Feira Nacional da Cadeia Produtiva do Boné",
   description:
     "A BONÉ BRASIL 2026 conecta o polo produtivo do boné ao mercado nacional, fortalecendo negócios, gerando oportunidades e consolidando Serra Negra do Norte/RN como referência no segmento.",
   keywords: [
@@ -31,10 +32,10 @@ export const metadata: Metadata = {
   authors: [{ name: "BONÉ BRASIL 2026" }],
   openGraph: {
     type: "website",
-    title: "BONÉ BRASIL 2026 — Feira Nacional do Boné",
+    title: "BONÉ BRASIL 2026: Feira Nacional do Boné",
     description:
       "A feira nacional que conecta o polo de Serra Negra do Norte ao mercado. Participe de rodadas de negócios, palestras e workshops.",
-    images: ["/assets/hero_cap.png"],
+    images: ["/assets/bg-secao1.png"],
   },
 };
 

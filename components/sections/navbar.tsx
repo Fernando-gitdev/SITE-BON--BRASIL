@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 
 const NAV_LINKS = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#diferenciais', label: 'Diferenciais' },
-  { href: '#publico', label: 'Oportunidade' },
-  { href: '#programacao', label: 'Programação' },
-  { href: '#local', label: 'O Polo' },
+  { href: '#pilares', label: 'Pilares' },
+  { href: '#numeros', label: 'Números' },
+  { href: '#processo', label: 'Processo' },
+  { href: '#contato', label: 'Contato' },
 ];
 
 export default function Navbar() {
@@ -17,8 +17,14 @@ export default function Navbar() {
     <header className="navbar" id="navbar">
       <div className="nav-container">
         <a href="#" className="logo">
-          <span className="logo-accent">BONÉ</span> BRASIL{' '}
-          <span className="logo-year">2026</span>
+          <Image
+            src="/assets/logo-bone-br.svg"
+            alt="Boné Brasil"
+            className="logo-mark"
+            width={821}
+            height={329}
+            priority
+          />
         </a>
 
         <nav className={`nav-menu ${menuOpen ? 'active' : ''}`} id="navMenu">
@@ -33,7 +39,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#inscricao"
+            href="#contato"
             className="nav-link btn-nav-cta"
             onClick={() => setMenuOpen(false)}
           >
