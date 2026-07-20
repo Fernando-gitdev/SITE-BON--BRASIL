@@ -1,4 +1,5 @@
 import Reveal from '@/components/ui/reveal';
+import { WHATSAPP_URL } from '@/lib/whatsapp';
 import SobreVideo from './sobre-video';
 
 const WORDS = [
@@ -38,8 +39,13 @@ export default function Apresentacao() {
       </Reveal>
 
       <Reveal delay={0.55}>
-        <a href="#pilares" className="btn btn-primary apresentacao-cta">
-          <span>Ver como funciona</span>
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary apresentacao-cta"
+        >
+          <span>Entrar em contato</span>
           <div className="btn-glow-effect"></div>
         </a>
       </Reveal>

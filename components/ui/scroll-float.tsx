@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useRef, type ReactNode, type RefObject } from 'react';
+import { useEffect, useMemo, useRef, type ElementType, type ReactNode, type RefObject } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface ScrollFloatProps {
   children: ReactNode;
+  as?: ElementType;
   scrollContainerRef?: RefObject<HTMLElement | null>;
   containerClassName?: string;
   textClassName?: string;
@@ -20,6 +21,7 @@ interface ScrollFloatProps {
 
 export default function ScrollFloat({
   children,
+  as: Tag = 'h2',
   scrollContainerRef,
   containerClassName = '',
   textClassName = '',
@@ -93,8 +95,8 @@ export default function ScrollFloat({
   }, [scrollContainerRef, animationDuration, ease, scrollStart, scrollEnd, stagger]);
 
   return (
-    <h2 ref={containerRef} className={`scroll-float ${containerClassName}`}>
+    <Tag ref={containerRef} className={`scroll-float ${containerClassName}`}>
       <span className={`scroll-float-text ${textClassName}`}>{splitText}</span>
-    </h2>
+    </Tag>
   );
 }

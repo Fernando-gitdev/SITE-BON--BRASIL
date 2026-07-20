@@ -36,8 +36,14 @@ export default function Pilares() {
     <section id="pilares" aria-label="O que você vai encontrar" className="pilares-section">
       <div className="pilares-intro">
         <Reveal className="section-header">
-          <span className="section-tagline">01 · O Que Você Vai Encontrar</span>
-          <ScrollFloat>Cinco frentes, um só encontro de negócios</ScrollFloat>
+          <h2 className="pilares-heading">
+            <ScrollFloat as="span" containerClassName="pilares-heading-line">
+              Cinco frentes,
+            </ScrollFloat>
+            <ScrollFloat as="span" containerClassName="pilares-heading-line">
+              um só encontro de negócios
+            </ScrollFloat>
+          </h2>
         </Reveal>
       </div>
 

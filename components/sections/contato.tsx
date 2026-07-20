@@ -7,7 +7,7 @@ export default function Contato() {
       <div className="contato-content">
         <Reveal>
           <h2>
-            Prontos para fazer parte <span className="muted-dark">da força produtiva nacional?</span>
+            Pronto <span className="muted-dark">para fazer parte?</span>
           </h2>
           <p>Vagas limitadas com condições especiais pra quem garantir agora seu espaço na BONÉ BRASIL 2026.</p>
         </Reveal>

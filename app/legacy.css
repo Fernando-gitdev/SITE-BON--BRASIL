@@ -690,6 +690,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 28px clamp(40px, 6vw, 64px);
 }
 
+.pilares-heading {
+    font-size: clamp(42px, 6.8vw, 72px);
+}
+
+.pilares-heading-line {
+    display: block;
+}
+
 .pilares-viewport {
     position: relative;
     height: 100vh;
@@ -752,6 +760,19 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
         gap: 20px;
         padding: clamp(24px, 6vw, 40px) 20px;
+    }
+
+    .pilar-card {
+        opacity: 0.45;
+        transform: scale(0.94);
+        transition: opacity 0.45s ease, transform 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+    }
+
+    .pilar-card.pilar-card-focused {
+        opacity: 1;
+        transform: scale(1);
+        border-color: rgba(184, 216, 50, 0.4);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(184, 216, 50, 0.12);
     }
 }
 
@@ -865,8 +886,9 @@ h1, h2, h3, h4, h5, h6 {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 30%, #c5e237 0%, #6f8a12 32%, #1c2b1a 62%, #141414 100%);
-    opacity: 0.92;
+    background: url('/assets/bg-ultima-secao.webp');
+    background-size: cover;
+    background-position: center;
 }
 
 .contato-content {
@@ -881,15 +903,15 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
     font-size: clamp(2.2rem, 6vw, 5rem);
     line-height: 0.94;
-    color: var(--text-dark);
+    color: var(--text-white);
 }
 
-.contato-content .muted-dark { color: rgba(20, 20, 20, 0.62); }
+.contato-content .muted-dark { color: rgba(255, 255, 255, 0.92); }
 
 .contato-content p {
     margin: 24px auto 0;
     max-width: 460px;
-    color: rgba(20, 20, 20, 0.78);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 16px;
     line-height: 1.6;
 }
@@ -918,6 +940,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 10px;
     padding: 18px 40px;
     font-size: 17px;
+    color: var(--text-white);
 }
 
 .whatsapp-icon { width: 22px; height: 22px; }

@@ -72,6 +72,23 @@ export default function PinnedCardStack({ children, className = '' }: PinnedCard
         };
       });
 
+      // Mobile: no pin, cards flow normally — instead, whichever card is
+      // passing through the center band of the viewport gets a "focused"
+      // highlight class. Driven purely by scroll position, not :hover
+      // (there's no hover on touch anyway).
+      mm.add('(max-width: 899px)', () => {
+        const triggers = cards.map((card) =>
+          ScrollTrigger.create({
+            trigger: card,
+            start: 'top 72%',
+            end: 'bottom 32%',
+            toggleClass: { targets: card, className: 'pilar-card-focused' },
+          })
+        );
+
+        return () => triggers.forEach((t) => t.kill());
+      });
+
       return () => mm.revert();
     }, stage);
 
