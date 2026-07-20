@@ -40,7 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={poppins.variable}>
-      <body>
+      <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

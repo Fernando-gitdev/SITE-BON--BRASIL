@@ -1,12 +1,27 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
 export default function Footer() {
+  const pathname = usePathname();
+  const onHome = pathname === '/';
+  const resolveHref = (href: string) => (href.startsWith('#') && !onHome ? `/${href}` : href);
+
   return (
     <footer className="footer">
       <div className="site-container footer-container">
         <div className="footer-brand">
-          <a href="#" className="logo">
-            <span className="logo-accent">BONÉ</span> BRASIL{' '}
-            <span className="logo-year">2026</span>
-          </a>
+          <Link href="/" className="logo">
+            <Image
+              src="/assets/logo-bone-br.svg"
+              alt="Boné Brasil"
+              className="logo-mark"
+              width={821}
+              height={329}
+            />
+          </Link>
           <p className="footer-desc">
             O maior encontro da cadeia produtiva do boné no Brasil.
           </p>
@@ -17,16 +32,16 @@ export default function Footer() {
             <h5 className="footer-title">Navegação</h5>
             <ul className="footer-links">
               <li>
-                <a href="#apresentacao">Sobre o Evento</a>
+                <Link href={resolveHref('#apresentacao')}>Sobre o Evento</Link>
               </li>
               <li>
-                <a href="#pilares">Pilares</a>
+                <Link href={resolveHref('#pilares')}>Pilares</Link>
               </li>
               <li>
-                <a href="#numeros">Números</a>
+                <Link href={resolveHref('#numeros')}>Números</Link>
               </li>
               <li>
-                <a href="/programacao">Programação</a>
+                <Link href="/programacao">Programação</Link>
               </li>
             </ul>
           </div>

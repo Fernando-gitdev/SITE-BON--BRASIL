@@ -2,21 +2,29 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
-  { href: '#pilares', label: 'Pilares' },
-  { href: '#numeros', label: 'Números' },
   { href: '/programacao', label: 'Programação' },
+  { href: 'https://maps.app.goo.gl/TBdPRiy9hBr3Mayi7', label: 'Localização', external: true },
   { href: '#contato', label: 'Contato' },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === '/';
+
+  // Hash links only resolve on the home page — from any other route
+  // (e.g. /programacao) they need the leading "/" so Next navigates back
+  // to home first, then the browser scrolls to the anchor.
+  const resolveHref = (href: string) => (href.startsWith('#') && !onHome ? `/${href}` : href);
 
   return (
     <header className="navbar" id="navbar">
       <div className="nav-container">
-        <a href="#" className="logo">
+        <Link href="/" className="logo">
           <Image
             src="/assets/logo-bone-br.svg"
             alt="Boné Brasil"
@@ -25,26 +33,39 @@ export default function Navbar() {
             height={329}
             priority
           />
-        </a>
+        </Link>
 
         <nav className={`nav-menu ${menuOpen ? 'active' : ''}`} id="navMenu">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="nav-link"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contato"
+          {NAV_LINKS.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={resolveHref(link.href)}
+                className="nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+          <Link
+            href={resolveHref('#contato')}
             className="nav-link btn-nav-cta"
             onClick={() => setMenuOpen(false)}
           >
             Garantir Vaga
-          </a>
+          </Link>
         </nav>
 
         <button
