@@ -1093,6 +1093,10 @@ h1, h2, h3, h4, h5, h6 {
     white-space: pre-wrap;
 }
 
+.text-type__word {
+    display: inline-block;
+}
+
 .text-type__cursor {
     margin-left: 0.15rem;
     display: inline-block;

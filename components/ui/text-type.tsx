@@ -181,6 +181,39 @@ const TextType = ({
   const shouldHideCursor =
     hideCursorWhileTyping && (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
 
+  // Render every character of the target sentence up front — hidden via
+  // `visibility` until "typed" — instead of growing a string. That way the
+  // box occupies its final size on first paint instead of expanding as
+  // characters arrive, which was showing up as real layout shift (CLS).
+  // Characters stay grouped by word (word wrapper as one atomic box) so the
+  // browser only line-breaks at real word boundaries, same as ScrollFloat.
+  const currentFullText = reverseMode
+    ? textArray[currentTextIndex].split('').reverse().join('')
+    : textArray[currentTextIndex];
+
+  let charOffset = 0;
+  const words = currentFullText.split(' ');
+  const revealedContent = words.flatMap((word, wordIndex) => {
+    const wordSpan = (
+      <span className="text-type__word" key={`word-${wordIndex}`}>
+        {word.split('').map((char, charIndex) => {
+          const idx = charOffset + charIndex;
+          return (
+            <span
+              key={charIndex}
+              className="text-type__char"
+              style={{ visibility: idx < displayedText.length ? 'visible' : 'hidden' }}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </span>
+    );
+    charOffset += word.length + 1; // +1 for the space consumed between words
+    return wordIndex < words.length - 1 ? [wordSpan, ' '] : [wordSpan];
+  });
+
   /* eslint-disable react-hooks/refs -- Component is always a host element
      ('span'/'div') in practice, which accepts refs safely; the rule can't
      verify that statically since Component is a dynamic ElementType. */
@@ -192,7 +225,7 @@ const TextType = ({
       ...props,
     },
     <span className="text-type__content" style={{ color: getCurrentTextColor() || 'inherit' } as CSSProperties}>
-      {displayedText}
+      {revealedContent}
     </span>,
     showCursor && (
       <span

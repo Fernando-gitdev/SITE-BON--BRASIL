@@ -1,5 +1,6 @@
 import TextType from '@/components/ui/text-type';
 import SplitText from '@/components/ui/split-text';
+import HeroBgVideo from './hero-bg-video';
 
 const HERO_TITLE_START = 'Conectamos o polo produtivo ';
 const HERO_TITLE_ACCENT = 'ao mercado nacional.';
@@ -9,18 +10,16 @@ const HERO_SUBTITLE_DELAY = 350;
 export default function Hero() {
   return (
     <section id="hero" className="hero-section" aria-label="Abertura">
-      <video
-        className="hero-bg-video"
-        src="/assets/video-bg-secao1.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
+      <HeroBgVideo />
 
       <div className="site-container hero-headline-row">
-        <img src="/assets/logo-bone-br.svg" alt="Boné Brasil" className="hero-logo" />
+        <img
+          src="/assets/logo-bone-br.svg"
+          alt="Boné Brasil"
+          className="hero-logo"
+          width={821}
+          height={329}
+        />
         <h1 className="hero-title">
           <TextType
             text={[HERO_TITLE_START]}
