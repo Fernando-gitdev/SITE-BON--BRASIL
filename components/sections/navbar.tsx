@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { WHATSAPP_URL } from '@/lib/whatsapp';
 
 const NAV_LINKS = [
   { href: '#apresentacao', label: 'O Evento' },
@@ -62,21 +63,25 @@ export default function Navbar() {
               </Link>
             )
           )}
-          <Link
-            href={resolveHref('#contato')}
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="nav-link btn-nav-cta nav-cta-mobile"
             onClick={() => setMenuOpen(false)}
           >
             Garantir Vaga
-          </Link>
+          </a>
         </nav>
 
-        <Link
-          href={resolveHref('#contato')}
+        <a
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="nav-link btn-nav-cta nav-cta-desktop"
         >
           Garantir Vaga
-        </Link>
+        </a>
 
         <button
           className={`menu-toggle ${menuOpen ? 'active' : ''}`}

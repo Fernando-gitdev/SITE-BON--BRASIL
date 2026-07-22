@@ -629,7 +629,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .apresentacao-section {
     background-color: var(--bg-primary);
-    padding: clamp(80px, 10vw, 160px) 0;
+    padding: clamp(80px, 10vw, 160px) 12px;
     text-align: center;
 }
 
