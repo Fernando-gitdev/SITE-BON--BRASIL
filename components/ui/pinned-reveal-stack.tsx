@@ -44,19 +44,6 @@ export default function PinnedRevealStack({
     const items = Array.from(viewport.children) as HTMLElement[];
     if (!items.length) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set(items, {
-        position: 'relative',
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        filter: 'blur(0px)',
-        letterSpacing: 'normal',
-        clearProps: 'transform',
-      });
-      return;
-    }
-
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 

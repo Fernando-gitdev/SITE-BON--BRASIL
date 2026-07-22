@@ -904,22 +904,6 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Same safe fallback as the mobile breakpoint above, but triggered by the
-   OS/browser motion preference instead of viewport width: when GSAP skips
-   the pin+cross-fade animation for prefers-reduced-motion, the cards stay
-   in normal document flow (position: relative) — the pinned viewport's
-   height:100vh/overflow:hidden/flex-row must be relaxed to match, or every
-   card renders at once, squashed side by side. */
-@media (prefers-reduced-motion: reduce) {
-    .pilares-viewport {
-        height: auto;
-        overflow: visible;
-        flex-direction: column;
-        gap: 20px;
-        padding: clamp(24px, 6vw, 40px) 20px;
-    }
-}
-
 /* ==========================================================================
    APOIO INSTITUCIONAL SECTION
    ========================================================================== */
@@ -1794,19 +1778,4 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
     .data-evento-text { font-size: clamp(2.4rem, 14vw, 5rem); }
-}
-
-/* Same reasoning as .pilares-viewport's reduced-motion override: when GSAP
-   skips the pin+reveal animation, both stages stay in normal flow at once —
-   the pinned viewport's height:100vh/overflow:hidden/flex-row must relax to
-   a plain stacked column, or the two stages render on top of each other. */
-@media (prefers-reduced-motion: reduce) {
-    .pinned-reveal-viewport {
-        height: auto;
-        overflow: visible;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 48px;
-        padding: 60px 28px;
-    }
 }

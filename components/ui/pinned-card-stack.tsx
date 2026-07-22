@@ -32,11 +32,6 @@ export default function PinnedCardStack({ children, className = '' }: PinnedCard
     const cards = Array.from(viewport.children) as HTMLElement[];
     if (!cards.length) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      gsap.set(cards, { opacity: 1, x: 0, y: 0, scale: 1, clearProps: 'transform' });
-      return;
-    }
-
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
