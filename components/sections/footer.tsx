@@ -29,8 +29,12 @@ export default function Footer() {
           <div className="footer-realizacao">
             <span className="footer-title">Realização</span>
             <div className="footer-realizacao-logos">
-              <Image src="/assets/f7-producoes-logo.png" alt="F7 Produções" width={44} height={44} />
-              <Image src="/assets/serra-negra-logo.webp" alt="Prefeitura de Serra Negra do Norte" width={66} height={44} />
+              <a href="https://www.instagram.com/f7producoesof/" target="_blank" rel="noopener noreferrer">
+                <Image src="/assets/f7-producoes-logo.png" alt="F7 Produções" width={44} height={44} />
+              </a>
+              <a href="https://serranegra.rn.gov.br/" target="_blank" rel="noopener noreferrer">
+                <Image src="/assets/serra-negra-logo.webp" alt="Prefeitura de Serra Negra do Norte" width={66} height={44} />
+              </a>
             </div>
           </div>
         </div>

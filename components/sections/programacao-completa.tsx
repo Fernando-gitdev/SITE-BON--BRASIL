@@ -119,7 +119,7 @@ const DAYS: DaySchedule[] = [
         events: [
           {
             time: '20h',
-            desc: 'Rodada de negócios nacional: segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
+            desc: 'Rodada de negócios nacional: tecidos, aviamentos e insumos da cadeia produtiva',
           },
         ],
       },
@@ -245,8 +245,7 @@ export default function ProgramacaoCompleta() {
             <h2>Espaços Permanentes da Feira</h2>
             <p>
               Durante todos os dias do evento funcionarão a Feira de Artesanato, o Espaço
-              Gastronômico e o Parque de Diversões, ampliando a experiência dos visitantes e
-              fortalecendo a economia local.
+              Gastronômico e o Parque de Diversões.
             </p>
           </Reveal>
 
