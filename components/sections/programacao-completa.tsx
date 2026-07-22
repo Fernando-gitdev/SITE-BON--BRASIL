@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Flag, Music, Presentation, Handshake, Palette, UtensilsCrossed, FerrisWheel } from 'lucide-react';
+import { Flag, Music, Presentation, Handshake, Palette, UtensilsCrossed, FerrisWheel, Users, Globe2 } from 'lucide-react';
 import Reveal from '@/components/ui/reveal';
+import ScrollFloat from '@/components/ui/scroll-float';
 
 type CategoryKey = 'abertura' | 'cultural' | 'summit' | 'negocios';
 
@@ -56,6 +57,24 @@ const PERMANENT_SPACES = [
       ['Dia 07', '16h às 00h'],
       ['Dia 08', '16h às 00h'],
     ],
+  },
+];
+
+const RODADAS_STEPS = [
+  {
+    icon: Users,
+    title: 'Encontros Organizados',
+    text: 'As Rodadas de Negócios da Boné Brasil 2026 serão realizadas por meio de encontros previamente organizados entre fabricantes, fornecedores, compradores, lojistas, distribuidores e representantes comerciais.',
+  },
+  {
+    icon: Handshake,
+    title: 'Reuniões Objetivas',
+    text: 'Os participantes serão agrupados conforme seus segmentos e interesses comerciais. Em horários definidos, cada empresa terá reuniões rápidas e objetivas para apresentar produtos, conhecer demandas, negociar preços, prazos e condições de fornecimento, além de iniciar possíveis parcerias.',
+  },
+  {
+    icon: Globe2,
+    title: 'Alcance Nacional e Internacional',
+    text: 'A programação contará com rodadas nacionais e internacionais, criando oportunidades para ampliar mercados, atrair novos clientes e conectar a cadeia produtiva do boné a compradores do Brasil e do exterior.',
   },
 ];
 
@@ -323,6 +342,38 @@ export default function ProgramacaoCompleta() {
           </AnimatePresence>
         </div>
       </section>
+
+      <section className="prog-rodadas-intro section-padding">
+        <div className="site-container">
+          <Reveal className="section-header align-center">
+            <span className="section-tagline">Como Funciona</span>
+            <ScrollFloat>Rodadas de Negócios</ScrollFloat>
+            <p className="section-subtitle">
+              Conversas certas, com as pessoas certas, no momento certo.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {RODADAS_STEPS.map((step, i) => {
+        const Icon = step.icon;
+        return (
+        <section
+          key={step.title}
+          className={`prog-rodada-section${i % 2 === 1 ? ' alt-bg' : ''}`}
+        >
+          <div className={`site-container prog-rodada-block${i % 2 === 1 ? ' reverse' : ''}`}>
+            <Reveal className="prog-rodada-visual">
+              <Icon className="prog-rodada-icon" strokeWidth={1} />
+            </Reveal>
+            <Reveal className="prog-rodada-content" delay={0.15}>
+              <ScrollFloat containerClassName="prog-rodada-title">{step.title}</ScrollFloat>
+              <p>{step.text}</p>
+            </Reveal>
+          </div>
+        </section>
+        );
+      })}
     </>
   );
 }

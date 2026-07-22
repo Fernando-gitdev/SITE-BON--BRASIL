@@ -27,7 +27,6 @@ const PILARES = [
     n: '05',
     title: 'Crédito & Fomento',
     desc: 'Instituições financeiras e entidades de apoio prontas pra financiar o próximo passo da sua fábrica.',
-    accent: true,
   },
 ];
 
@@ -49,7 +48,7 @@ export default function Pilares() {
 
       <PinnedCardStack>
         {PILARES.map((p) => (
-          <div className={`pilar-card${p.accent ? ' is-accent' : ''}`} key={p.n}>
+          <div className="pilar-card" key={p.n}>
             <span className="pilar-index">{p.n}</span>
             <div>
               <h3>{p.title}</h3>

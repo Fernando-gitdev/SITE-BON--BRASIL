@@ -191,13 +191,19 @@ const TextType = ({
     ? textArray[currentTextIndex].split('').reverse().join('')
     : textArray[currentTextIndex];
 
-  let charOffset = 0;
   const words = currentFullText.split(' ');
+  // Cumulative start offset of each word within the full string, computed up
+  // front so the render below never mutates a shared variable across
+  // iterations (each word's offset only depends on the ones before it).
+  const wordOffsets = words.reduce<number[]>((acc, word, i) => {
+    acc.push(i === 0 ? 0 : acc[i - 1] + words[i - 1].length + 1);
+    return acc;
+  }, []);
   const revealedContent = words.flatMap((word, wordIndex) => {
     const wordSpan = (
       <span className="text-type__word" key={`word-${wordIndex}`}>
         {word.split('').map((char, charIndex) => {
-          const idx = charOffset + charIndex;
+          const idx = wordOffsets[wordIndex] + charIndex;
           return (
             <span
               key={charIndex}
@@ -210,7 +216,6 @@ const TextType = ({
         })}
       </span>
     );
-    charOffset += word.length + 1; // +1 for the space consumed between words
     return wordIndex < words.length - 1 ? [wordSpan, ' '] : [wordSpan];
   });
 

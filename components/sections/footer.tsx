@@ -25,41 +25,40 @@ export default function Footer() {
           <p className="footer-desc">
             O maior encontro da cadeia produtiva do boné no Brasil.
           </p>
+
+          <div className="footer-realizacao">
+            <span className="footer-title">Realização</span>
+            <div className="footer-realizacao-logos">
+              <Image src="/assets/f7-producoes-logo.png" alt="F7 Produções" width={44} height={44} />
+              <Image src="/assets/serra-negra-logo.webp" alt="Prefeitura de Serra Negra do Norte" width={66} height={44} />
+            </div>
+          </div>
         </div>
 
-        <div className="footer-links-grid">
-          <div>
-            <h5 className="footer-title">Navegação</h5>
-            <ul className="footer-links">
-              <li>
-                <Link href={resolveHref('#apresentacao')}>Sobre o Evento</Link>
-              </li>
-              <li>
-                <Link href={resolveHref('#pilares')}>Pilares</Link>
-              </li>
-              <li>
-                <Link href={resolveHref('#numeros')}>Números</Link>
-              </li>
-              <li>
-                <Link href="/programacao">Programação</Link>
-              </li>
-            </ul>
-          </div>
+        <div>
+          <h5 className="footer-title">Navegação</h5>
+          <ul className="footer-links">
+            <li>
+              <Link href={resolveHref('#apresentacao')}>O Evento</Link>
+            </li>
+            <li>
+              <Link href={resolveHref('#expositores')}>Expositores</Link>
+            </li>
+            <li>
+              <Link href="/programacao">Programação</Link>
+            </li>
+            <li>
+              <Link href="/hospedagens">Hospedagens</Link>
+            </li>
+            <li>
+              <Link href={resolveHref('#contato')}>Contato</Link>
+            </li>
+          </ul>
+        </div>
 
-          <div>
-            <h5 className="footer-title">Realização</h5>
-            <ul className="footer-links">
-              <li>
-                <span>Prefeitura Municipal de Serra Negra do Norte/RN</span>
-              </li>
-              <li>
-                <span>Associação dos Fabricantes de Bonés</span>
-              </li>
-              <li>
-                <span>Apoio Institucional SEBRAE/RN</span>
-              </li>
-            </ul>
-          </div>
+        <div>
+          <h5 className="footer-title">Patrocínios</h5>
+          <div className="footer-patrocinios-logos"></div>
         </div>
       </div>
 
@@ -69,14 +68,13 @@ export default function Footer() {
             &copy; 2026 BONÉ BRASIL. Todos os direitos reservados.
           </p>
           <div className="footer-socials">
-            <a href="#" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/bonebrasilfeira/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               Instagram
-            </a>
-            <a href="#" aria-label="LinkedIn">
-              LinkedIn
-            </a>
-            <a href="#" aria-label="Facebook">
-              Facebook
             </a>
           </div>
         </div>

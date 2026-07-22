@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
+  { href: '#apresentacao', label: 'O Evento' },
+  { href: '#expositores', label: 'Expositores' },
   { href: '/programacao', label: 'Programação' },
   { href: '/hospedagens', label: 'Hospedagens' },
   { href: 'https://maps.app.goo.gl/TBdPRiy9hBr3Mayi7', label: 'Localização', external: true },
@@ -62,12 +64,19 @@ export default function Navbar() {
           )}
           <Link
             href={resolveHref('#contato')}
-            className="nav-link btn-nav-cta"
+            className="nav-link btn-nav-cta nav-cta-mobile"
             onClick={() => setMenuOpen(false)}
           >
             Garantir Vaga
           </Link>
         </nav>
+
+        <Link
+          href={resolveHref('#contato')}
+          className="nav-link btn-nav-cta nav-cta-desktop"
+        >
+          Garantir Vaga
+        </Link>
 
         <button
           className={`menu-toggle ${menuOpen ? 'active' : ''}`}

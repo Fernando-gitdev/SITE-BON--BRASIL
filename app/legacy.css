@@ -265,6 +265,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-container {
+    position: relative;
     width: 100%;
     height: 100%;
     margin: 0 auto;
@@ -283,9 +284,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-poppins), sans-serif;
     color: var(--text-white);
 }
-
-.logo-accent { color: var(--brand-accent); }
-.logo-year { font-weight: 300; color: var(--text-white); opacity: 1; }
 
 .logo-mark {
     display: block;
@@ -339,6 +337,8 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-1px);
 }
 
+.nav-cta-desktop { display: none; }
+
 /* Mobile Toggle */
 .menu-toggle {
     display: none;
@@ -358,6 +358,19 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--text-white);
     transition: var(--transition-smooth);
     border-radius: 2px;
+}
+
+@media (min-width: 992px) {
+    .nav-menu {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: max-content;
+        transform: translate(-50%, -50%);
+    }
+
+    .nav-cta-mobile { display: none; }
+    .nav-cta-desktop { display: inline-flex; }
 }
 
 @media (max-width: 991px) {
@@ -663,7 +676,45 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-faint);
 }
 
+.apresentacao-info {
+    margin: 48px auto 0;
+    max-width: 640px;
+    text-align: left;
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: clamp(28px, 4vw, 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.apresentacao-info-title {
+    color: var(--brand-accent);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.apresentacao-info p {
+    color: var(--text-muted);
+    font-size: 14.5px;
+    line-height: 1.75;
+    text-align: justify;
+}
+
 .apresentacao-cta { margin-top: 40px; }
+
+@media (max-width: 640px) {
+    .apresentacao-info {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
 
 /* ==========================================================================
    NÚMEROS DO POLO SECTION
@@ -805,20 +856,13 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
-.pilar-card.is-accent {
-    background: linear-gradient(135deg, var(--bg-card), rgba(28, 43, 26, 0.55));
-    border-color: rgba(184, 216, 50, 0.25);
-}
-
 .pilar-index {
     font-size: clamp(3.5rem, 7vw, 6rem);
     font-weight: 900;
     line-height: 1;
-    color: var(--border-medium);
+    color: var(--brand-accent);
     font-family: var(--font-poppins), sans-serif;
 }
-
-.pilar-card.is-accent .pilar-index { color: var(--brand-accent); }
 
 .pilar-card h3 {
     margin: 0 0 12px;
@@ -1066,11 +1110,33 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7;
 }
 
-.footer-links-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
+.footer-realizacao { margin-top: 28px; }
+
+.footer-realizacao .footer-title { margin-bottom: 14px; }
+
+.footer-realizacao-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
+
+.footer-realizacao-logos img {
+    height: 44px;
+    width: auto;
+}
+
+.footer-patrocinios-logos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 44px;
+}
+
+.footer-patrocinios-logos img {
+    height: 44px;
+    width: auto;
+}
+
 
 .footer-title {
     font-size: 11px;
@@ -1111,7 +1177,6 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
     .footer-container { flex-direction: column; gap: 36px; }
-    .footer-links-grid { grid-template-columns: 1fr; gap: 28px; }
     .footer-bottom-container { flex-direction: column; gap: 16px; text-align: center; }
 }
 
@@ -1205,6 +1270,77 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(32px, 5.5vw, 54px);
     margin-bottom: 16px;
     font-weight: 900;
+}
+
+.prog-rodadas-intro {
+    background-color: var(--bg-primary);
+    padding-bottom: 0;
+}
+
+.prog-rodada-section {
+    background-color: var(--bg-primary);
+    padding: 88px 0;
+}
+
+.prog-rodada-section.alt-bg {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--divider);
+    border-bottom: 1px solid var(--divider);
+}
+
+.prog-rodada-block {
+    display: flex;
+    align-items: center;
+    gap: 72px;
+}
+
+.prog-rodada-block.reverse {
+    flex-direction: row-reverse;
+}
+
+.prog-rodada-visual {
+    flex-shrink: 0;
+    width: clamp(140px, 20vw, 240px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prog-rodada-icon {
+    width: clamp(84px, 11vw, 150px);
+    height: clamp(84px, 11vw, 150px);
+    color: var(--brand-accent);
+    opacity: 0.45;
+}
+
+.prog-rodada-content { flex: 1; min-width: 0; }
+
+.prog-rodada-title {
+    font-size: clamp(26px, 3.6vw, 40px);
+    font-weight: 900;
+    color: var(--brand-accent);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.prog-rodada-content p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 620px;
+}
+
+@media (max-width: 900px) {
+    .prog-rodada-section { padding: 56px 0; }
+    .prog-rodada-block,
+    .prog-rodada-block.reverse {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .prog-rodada-visual { width: auto; }
+    .prog-rodada-icon { width: clamp(64px, 24vw, 96px); height: clamp(64px, 24vw, 96px); }
+    .prog-rodada-content p { max-width: none; margin: 0 auto; }
 }
 
 .prog-spaces-section {
@@ -1360,11 +1496,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 14px;
     padding: 26px;
 }
-
-.prog-group-card.cat-abertura { --cat-color: #b8d832; }
-.prog-group-card.cat-cultural { --cat-color: #e8a13c; }
-.prog-group-card.cat-summit { --cat-color: #4fa3e3; }
-.prog-group-card.cat-negocios { --cat-color: #a875e0; }
 
 .prog-group-header {
     display: flex;

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import TextType from '@/components/ui/text-type';
 import SplitText from '@/components/ui/split-text';
 import HeroBgVideo from './hero-bg-video';
@@ -16,12 +17,13 @@ export default function Hero() {
       <HeroBgVideo />
 
       <div className="site-container hero-headline-row">
-        <img
+        <Image
           src="/assets/logo-bone-br.svg"
           alt="Boné Brasil"
           className="hero-logo"
           width={821}
           height={329}
+          priority
         />
         <h1 className="hero-title">
           <TextType

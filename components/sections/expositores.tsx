@@ -3,7 +3,6 @@ import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
 
 const LOGOS = [
-  { src: '/assets/logo-bone-br.svg', alt: 'Boné Brasil', width: 140, height: 56 },
   { src: '/assets/silmaq-logo.png', alt: 'Silmaq', width: 140, height: 45 },
   { src: '/assets/omega-expositor.png', alt: 'Ômega Screen', width: 140, height: 126 },
   { src: '/assets/fabricolor-logo.webp', alt: 'Fabricolor do Brasil', width: 140, height: 39 },

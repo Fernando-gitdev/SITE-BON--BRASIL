@@ -38,7 +38,26 @@ export default function Apresentacao() {
         <p className="apresentacao-video-caption">Serra Negra do Norte/RN · vídeo institucional</p>
       </Reveal>
 
-      <Reveal delay={0.55}>
+      <Reveal delay={0.5}>
+        <div className="apresentacao-info">
+          <h3 className="apresentacao-info-title">Sobre o Evento</h3>
+          <p>
+            A Boné Brasil 2026 é a 2ª edição da Feira Nacional da Cadeia Produtiva do Boné,
+            realizada de 06 a 08 de agosto, em Serra Negra do Norte/RN.
+          </p>
+          <p>
+            O evento reúne fabricantes, fornecedores, compradores, instituições e visitantes
+            em uma programação com feira de negócios, palestras, rodadas comerciais, moda,
+            cultura, artesanato e gastronomia.
+          </p>
+          <p>
+            Mais do que uma feira, a Boné Brasil fortalece a indústria local, gera
+            oportunidades e projeta Serra Negra do Norte para todo o país.
+          </p>
+        </div>
+      </Reveal>
+
+      <Reveal delay={0.6}>
         <a
           href={WHATSAPP_URL}
           target="_blank"
