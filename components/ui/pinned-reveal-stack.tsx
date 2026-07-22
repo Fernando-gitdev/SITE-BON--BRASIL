@@ -58,66 +58,86 @@ export default function PinnedRevealStack({
     }
 
     const ctx = gsap.context(() => {
-      gsap.set(stageEl, { height: `${items.length * vhPerStage}vh` });
-      gsap.set(items, {
-        position: 'absolute',
-        opacity: 0,
-        y: 46,
-        scale: 0.9,
-        filter: 'blur(16px)',
-        letterSpacing: '0.35em',
-      });
+      const mm = gsap.matchMedia();
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: stageEl,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.8,
-          pin: viewport,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
+      // Animating letter-spacing forces the browser to reflow the text on
+      // every scrub tick — on mobile that reads as the heading jittering
+      // sideways (users read it as "wanting to scroll horizontally")
+      // instead of a cinematic reveal. Desktop keeps the wide letter-spacing
+      // sweep; mobile only animates transform/opacity/blur, which are cheap
+      // and never change layout width.
+      mm.add(
+        {
+          desktop: '(min-width: 641px)',
+          mobile: '(max-width: 640px)',
         },
-      });
+        (context) => {
+          const { desktop } = context.conditions as { desktop: boolean };
 
-      const perStage = 1 / items.length;
-      items.forEach((item, i) => {
-        const base = i * perStage;
-        tl.to(
-          item,
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            filter: 'blur(0px)',
-            letterSpacing: '-0.01em',
-            duration: perStage * 0.4,
-            ease: 'power2.out',
-          },
-          base
-        );
-        // The stage then simply holds (nothing animates) until this point,
-        // reinforcing it before the next one takes over.
-        if (i < items.length - 1) {
-          tl.to(
-            item,
-            {
-              opacity: 0,
-              y: -36,
-              scale: 0.95,
-              filter: 'blur(10px)',
-              duration: perStage * 0.25,
-              ease: 'power1.in',
+          gsap.set(stageEl, { height: `${items.length * vhPerStage}vh` });
+          gsap.set(items, {
+            position: 'absolute',
+            opacity: 0,
+            y: 46,
+            scale: 0.9,
+            filter: 'blur(16px)',
+            letterSpacing: desktop ? '0.35em' : 'normal',
+          });
+
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: stageEl,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 0.8,
+              pin: viewport,
+              anticipatePin: 1,
+              invalidateOnRefresh: true,
             },
-            base + perStage * 0.7
-          );
-        }
-      });
+          });
 
-      return () => {
-        tl.scrollTrigger?.kill();
-        tl.kill();
-      };
+          const perStage = 1 / items.length;
+          items.forEach((item, i) => {
+            const base = i * perStage;
+            tl.to(
+              item,
+              {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: 'blur(0px)',
+                letterSpacing: desktop ? '-0.01em' : 'normal',
+                duration: perStage * 0.4,
+                ease: 'power2.out',
+              },
+              base
+            );
+            // The stage then simply holds (nothing animates) until this point,
+            // reinforcing it before the next one takes over.
+            if (i < items.length - 1) {
+              tl.to(
+                item,
+                {
+                  opacity: 0,
+                  y: -36,
+                  scale: 0.95,
+                  filter: 'blur(10px)',
+                  duration: perStage * 0.25,
+                  ease: 'power1.in',
+                },
+                base + perStage * 0.7
+              );
+            }
+          });
+
+          return () => {
+            tl.scrollTrigger?.kill();
+            tl.kill();
+          };
+        }
+      );
+
+      return () => mm.revert();
     }, stageEl);
 
     return () => ctx.revert();
