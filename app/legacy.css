@@ -527,6 +527,90 @@ h1, h2, h3, h4, h5, h6 {
 .tags-marquee-item .dot { color: var(--brand-accent); }
 
 /* ==========================================================================
+   EXPOSITORES SECTION (three-lane infinite marquee)
+   ========================================================================== */
+
+@keyframes marquee-right {
+    from { transform: translate3d(-50%, 0, 0); }
+    to { transform: translate3d(0, 0, 0); }
+}
+
+.expositores-section {
+    background-color: var(--bg-primary);
+    padding-top: 90px;
+}
+
+.expositores-heading-line {
+    display: block;
+}
+
+.expositores-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--brand-accent);
+    margin-bottom: 18px;
+}
+
+.expositores-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 48px auto 0;
+    max-width: 1100px;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
+}
+
+.expositores-row {
+    display: flex;
+    width: max-content;
+}
+
+.expositores-track {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    padding-right: 44px;
+    will-change: transform;
+}
+
+.expositores-track.dir-a { animation: marquee-right 32s linear infinite; }
+.expositores-track.dir-b { animation: marquee 24s linear infinite; }
+.expositores-track.dir-c { animation: marquee-right 28s linear infinite; }
+
+.expositores-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+}
+
+.expositores-logo img {
+    height: 34px;
+    width: auto;
+    opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+    .expositores-section { padding-top: 56px; }
+    .expositores-carousel { gap: 16px; mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%); }
+    .expositores-track { gap: 32px; padding-right: 32px; }
+    .expositores-logo { height: 50px; }
+    .expositores-logo img { height: 24px; }
+    .expositores-track.dir-a { animation-duration: 24s; }
+    .expositores-track.dir-b { animation-duration: 18s; }
+    .expositores-track.dir-c { animation-duration: 21s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .expositores-track { animation: none; }
+}
+
+/* ==========================================================================
    APRESENTAÇÃO SECTION
    ========================================================================== */
 
@@ -1353,4 +1437,176 @@ h1, h2, h3, h4, h5, h6 {
     .prog-day-tabs { width: 100%; }
     .prog-day-tab { flex: 1; padding: 10px 12px; }
 }
+
+/* ==========================================================================
+   HOSPEDAGENS — DEDICATED PAGE
+   ========================================================================== */
+
+.hosp-hero {
+    background-color: var(--bg-primary);
+    padding-top: calc(var(--nav-height) + 60px);
+    text-align: center;
+}
+
+.hosp-cities-section {
+    background-color: var(--bg-primary);
+}
+
+.hosp-cities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hosp-city-card {
+    background-color: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 30px 32px;
+}
+
+.hosp-city-card.is-host {
+    border-left: 3px solid var(--brand-accent);
+}
+
+.hosp-city-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--divider);
+}
+
+.hosp-city-header h2 {
+    font-size: clamp(19px, 2.4vw, 24px);
+    font-weight: 800;
+}
+
+.hosp-city-state {
+    color: var(--text-faint);
+    font-weight: 600;
+    font-size: 0.7em;
+    margin-left: 4px;
+}
+
+.hosp-city-distance {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.hosp-city-distance svg { color: var(--brand-accent); flex-shrink: 0; }
+
+.hosp-city-badge {
+    flex-shrink: 0;
+    background-color: rgba(184, 216, 50, 0.1);
+    color: var(--brand-accent);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 100px;
+}
+
+.hosp-hotel-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 4px 24px;
+}
+
+.hosp-hotel-list li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 7px 0;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.hosp-hotel-list li svg {
+    color: var(--brand-accent);
+    flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+    .hosp-city-card { padding: 24px 20px; }
+    .hosp-hotel-list { grid-template-columns: 1fr; }
+}
+
 .scroll-float .char { display: inline-block; }
+
+/* ==========================================================================
+   DATA DO EVENTO (pinned cinematic reveal)
+   ========================================================================== */
+
+.data-evento-section {
+    position: relative;
+}
+
+.pinned-reveal-stage {
+    position: relative;
+}
+
+.pinned-reveal-viewport {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    background-color: #0a0a0a;
+    padding: 0 28px;
+}
+
+.pinned-reveal-viewport::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 45%, rgba(184, 216, 50, 0.14) 0%, rgba(10, 10, 10, 0) 60%);
+    pointer-events: none;
+}
+
+.data-evento-stage {
+    position: relative;
+    z-index: 1;
+    padding: 0 28px;
+    will-change: transform, opacity, filter;
+}
+
+.data-evento-text {
+    margin: 0;
+    color: var(--text-white);
+    font-size: clamp(3rem, 11vw, 9rem);
+    font-weight: 900;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+.data-evento-eyebrow {
+    display: block;
+    color: var(--brand-accent);
+    font-size: clamp(13px, 1.6vw, 18px);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.text-glow-accent {
+    color: var(--brand-accent);
+    text-shadow: 0 0 24px rgba(184, 216, 50, 0.45);
+}
+
+@media (max-width: 640px) {
+    .data-evento-text { font-size: clamp(2.4rem, 14vw, 5rem); }
+}

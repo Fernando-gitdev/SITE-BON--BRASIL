@@ -1,3 +1,4 @@
+import { Users } from 'lucide-react';
 import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
 
@@ -13,17 +14,13 @@ export default function Numeros() {
         <div className="stats-grid">
           <Reveal className="stat-card" delay={0.1}>
             <div className="stat-icon-wrapper">
-              <svg className="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M2 18.5C2 15.5 5 15.5 9 15.5H15C19 15.5 22 15.5 22 18.5V20H2V18.5Z" />
-                <path d="M12 4C8.5 4 5 7.5 5 12V15.5H19V12C19 7.5 15.5 4 12 4Z" />
-                <path d="M12 4V2" />
-              </svg>
+              <Users className="stat-icon" size={24} strokeWidth={1.5} />
             </div>
             <div className="stat-number-wrapper">
-              <span className="stat-number" data-target="2730">0</span>
+              <span className="stat-number" data-target="500">0</span>
             </div>
-            <h3 className="stat-title">Pessoas Impactadas</h3>
-            <p className="stat-desc">Profissionais e agentes produtivos conectados na feira.</p>
+            <h3 className="stat-title">Vendedores Ativos</h3>
+            <p className="stat-desc">Representantes e revendedores espalhados pelo país.</p>
           </Reveal>
 
           <Reveal className="stat-card highlight-card" delay={0.2}>

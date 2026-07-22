@@ -100,7 +100,7 @@ const DAYS: DaySchedule[] = [
         events: [
           {
             time: '20h',
-            desc: 'Rodada de negócios nacional — segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
+            desc: 'Rodada de negócios nacional: segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
           },
         ],
       },
@@ -123,7 +123,7 @@ const DAYS: DaySchedule[] = [
         title: 'Boné Brasil Summit',
         venue: 'Auditório entre a Casa de Cultura e o Centro Pastoral',
         events: [
-          { time: '17h', desc: 'Palestra sobre Inteligência Artificial — Sebrae' },
+          { time: '17h', desc: 'Palestra sobre Inteligência Artificial: Sebrae' },
           { time: '19h', desc: 'Palestra: Reforma Tributária' },
           { time: '20h', desc: 'Palestra Magna' },
         ],
@@ -135,7 +135,7 @@ const DAYS: DaySchedule[] = [
         events: [
           {
             time: '20h',
-            desc: 'Rodada de negócios internacional — segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
+            desc: 'Rodada de negócios internacional: segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
           },
         ],
       },
@@ -146,7 +146,7 @@ const DAYS: DaySchedule[] = [
         events: [
           { time: '18h', desc: 'Apresentação de grupo de capoeira' },
           { time: '18h30', desc: 'Apresentação do grupo de flauta doce' },
-          { time: '20h', desc: 'Boné Brasil Fashion — Concurso do Boné' },
+          { time: '20h', desc: 'Boné Brasil Fashion: Concurso do Boné' },
           { time: '21h', desc: 'Show de Arnaldinho Neto' },
           { time: '23h', desc: 'Show de Áureo Deni' },
         ],
@@ -171,7 +171,7 @@ const DAYS: DaySchedule[] = [
         venue: 'Auditório entre a Casa de Cultura e o Centro Pastoral',
         events: [
           { time: '16h', desc: 'Oficina de confecção com materiais reaproveitados' },
-          { time: '16h', desc: 'Palestra do Instituto IMOA — Sustentabilidade' },
+          { time: '16h', desc: 'Palestra do Instituto IMOA: Sustentabilidade' },
           { time: '17h', desc: 'Palestra: Tráfego Pago' },
           { time: '18h', desc: 'Palestra: Acesso ao Crédito' },
           { time: '19h', desc: 'Palestra: Exportação e Importação' },
@@ -182,7 +182,7 @@ const DAYS: DaySchedule[] = [
         category: 'negocios',
         title: 'Rodada de Negócios',
         venue: 'Casa de Cultura',
-        events: [{ time: '19h', desc: 'Rodada de negócios — Máquinas' }],
+        events: [{ time: '19h', desc: 'Rodada de negócios: Máquinas' }],
       },
       {
         category: 'cultural',
@@ -192,7 +192,7 @@ const DAYS: DaySchedule[] = [
           { time: '12h', desc: 'Encontro de Carros Antigos' },
           { time: '17h', desc: 'Inauguração do painel em grafite "Serra Negra do Norte: a terra do Boné"' },
           { time: '18h', desc: 'DJ TMF' },
-          { time: '20h', desc: 'Desfile Boné Brasil Fashion — Desfile do Boné' },
+          { time: '20h', desc: 'Desfile Boné Brasil Fashion: Desfile do Boné' },
           { time: '21h30', desc: 'Show do Bloco do Magão' },
           { time: '22h30', desc: 'Cerimônia de encerramento' },
           { time: '23h', desc: 'Show de Elayne Tyne' },

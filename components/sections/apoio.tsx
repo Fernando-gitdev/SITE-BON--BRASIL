@@ -12,7 +12,7 @@ export default function Apoio() {
           </h2>
           <p className="apoio-card-lead">
             <span className="text-brand-accent">Crédito, capacitação e conexão de mercado</span>{' '}
-            num só lugar — o suporte institucional que profissionaliza toda a
+            num só lugar, o suporte institucional que profissionaliza toda a
             cadeia produtiva do boné.
           </p>
         </div>

@@ -1,11 +1,14 @@
 import TextType from '@/components/ui/text-type';
 import SplitText from '@/components/ui/split-text';
 import HeroBgVideo from './hero-bg-video';
+import { buildWhatsAppUrl } from '@/lib/whatsapp';
 
 const HERO_TITLE_START = 'Conectamos o polo produtivo ';
 const HERO_TITLE_ACCENT = 'ao mercado nacional.';
 const HERO_TYPING_SPEED = 45;
 const HERO_SUBTITLE_DELAY = 350;
+
+const HERO_CTA_MESSAGE = 'Olá! Quero participar das rodadas de negócios da Boné Brasil 2026.';
 
 export default function Hero() {
   return (
@@ -53,8 +56,13 @@ export default function Hero() {
           />
         </div>
 
-        <a href="#contato" className="btn btn-primary hero-cta">
-          <span>Entrar em Contato</span>
+        <a
+          href={buildWhatsAppUrl(HERO_CTA_MESSAGE)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary hero-cta"
+        >
+          <span>Quero participar das rodadas de negócios</span>
           <div className="btn-glow-effect"></div>
         </a>
       </div>

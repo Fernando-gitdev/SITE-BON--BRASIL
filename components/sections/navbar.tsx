@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 
 const NAV_LINKS = [
   { href: '/programacao', label: 'Programação' },
+  { href: '/hospedagens', label: 'Hospedagens' },
   { href: 'https://maps.app.goo.gl/TBdPRiy9hBr3Mayi7', label: 'Localização', external: true },
   { href: '#contato', label: 'Contato' },
 ];
