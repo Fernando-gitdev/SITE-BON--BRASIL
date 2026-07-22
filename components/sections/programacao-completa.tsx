@@ -367,7 +367,7 @@ export default function ProgramacaoCompleta() {
         </div>
       </section>
 
-      {RODADAS_CONFIRMED && (
+      {RODADAS_CONFIRMED ? (
         <>
           <section className="prog-rodadas-intro section-padding">
             <div className="site-container">
@@ -401,6 +401,21 @@ export default function ProgramacaoCompleta() {
             );
           })}
         </>
+      ) : (
+        <section className="prog-schedule-section section-padding">
+          <div className="site-container">
+            <Reveal className="prog-coming-soon">
+              <div className="prog-coming-soon-icon">
+                <Handshake size={26} strokeWidth={1.5} />
+              </div>
+              <h3>Rodada de negócios em breve</h3>
+              <p>
+                Os detalhes de como funcionarão as rodadas de negócios estão sendo finalizados
+                e serão divulgados em breve.
+              </p>
+            </Reveal>
+          </div>
+        </section>
       )}
     </>
   );
