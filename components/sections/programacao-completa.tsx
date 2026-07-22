@@ -212,7 +212,6 @@ const DAYS: DaySchedule[] = [
           { time: '17h', desc: 'Inauguração do painel em grafite "Serra Negra do Norte: a terra do Boné"' },
           { time: '18h', desc: 'DJ TMF' },
           { time: '20h', desc: 'Desfile Boné Brasil Fashion: Desfile do Boné' },
-          { time: '21h30', desc: 'Show do Bloco do Magão' },
           { time: '22h30', desc: 'Cerimônia de encerramento' },
           { time: '23h', desc: 'Show de Elayne Tyne' },
           { time: '01h', desc: 'Show de Deixe de Brincadeira' },
@@ -246,7 +245,8 @@ export default function ProgramacaoCompleta() {
             <h2>Espaços Permanentes da Feira</h2>
             <p>
               Durante todos os dias do evento funcionarão a Feira de Artesanato, o Espaço
-              Gastronômico e o Parque de Diversões.
+              Gastronômico e o Parque de Diversões, ampliando a experiência dos visitantes e
+              fortalecendo a economia local.
             </p>
           </Reveal>
 
