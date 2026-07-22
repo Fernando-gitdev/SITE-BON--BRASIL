@@ -1650,22 +1650,60 @@ h1, h2, h3, h4, h5, h6 {
 .hosp-hotel-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 4px 24px;
 }
 
 .hosp-hotel-list li {
     display: flex;
     align-items: center;
-    gap: 9px;
+    justify-content: space-between;
+    gap: 12px;
     padding: 7px 0;
     color: var(--text-muted);
     font-size: 14px;
 }
 
-.hosp-hotel-list li svg {
+.hosp-hotel-name {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.hosp-hotel-name svg {
     color: var(--brand-accent);
     flex-shrink: 0;
+}
+
+.hosp-hotel-name span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hosp-hotel-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 100px;
+    background-color: rgba(184, 216, 50, 0.12);
+    color: var(--brand-accent);
+    flex-shrink: 0;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.hosp-hotel-whatsapp svg {
+    width: 14px;
+    height: 14px;
+}
+
+.hosp-hotel-whatsapp:hover {
+    background-color: var(--brand-accent);
+    color: var(--text-dark);
+    transform: scale(1.08);
 }
 
 @media (max-width: 640px) {
