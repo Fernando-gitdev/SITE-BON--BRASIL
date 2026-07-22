@@ -2,9 +2,19 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Flag, Music, Presentation, Handshake, Palette, UtensilsCrossed, FerrisWheel, Users, Globe2 } from 'lucide-react';
+import { Flag, Music, Presentation, Handshake, Palette, UtensilsCrossed, FerrisWheel, Users, Globe2, CalendarClock } from 'lucide-react';
 import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
+
+// Day-by-day schedule (times, speakers, attractions) isn't officially
+// confirmed yet — keep the data/rendering below intact so it's a one-line
+// flip once it is, but show a placeholder in the meantime instead of
+// publishing unconfirmed info.
+const SCHEDULE_CONFIRMED = false;
+
+// Same idea: hide the "Rodadas de Negócios" explainer for now without
+// deleting it — flip back to true whenever it should go live again.
+const RODADAS_CONFIRMED = false;
 
 type CategoryKey = 'abertura' | 'cultural' | 'summit' | 'negocios';
 
@@ -275,104 +285,123 @@ export default function ProgramacaoCompleta() {
 
       <section className="prog-schedule-section section-padding">
         <div className="site-container">
-          <div className="prog-day-tabs">
-            {DAYS.map((d) => (
-              <button
-                key={d.id}
-                type="button"
-                className={`prog-day-tab ${d.id === activeDay ? 'active' : ''}`}
-                onClick={() => setActiveDay(d.id)}
+          {SCHEDULE_CONFIRMED ? (
+            <>
+              <div className="prog-day-tabs">
+                {DAYS.map((d) => (
+                  <button
+                    key={d.id}
+                    type="button"
+                    className={`prog-day-tab ${d.id === activeDay ? 'active' : ''}`}
+                    onClick={() => setActiveDay(d.id)}
+                  >
+                    {d.id === activeDay && (
+                      <motion.span
+                        layoutId="prog-day-tab-bg"
+                        className="prog-day-tab-bg"
+                        transition={{ type: 'spring', duration: 0.5, bounce: 0.2 }}
+                      />
+                    )}
+                    <span className="prog-day-tab-label">{d.label}</span>
+                  </button>
+                ))}
+              </div>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={day.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -16 }}
+                  transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+                >
+                  <div className="prog-day-header">
+                    <span className="prog-day-date">{day.date}</span>
+                    <h3>{day.heading}</h3>
+                  </div>
+
+                  <div className="prog-groups-grid">
+                    {day.groups.map((group, i) => {
+                      const cat = CATEGORIES[group.category];
+                      const CatIcon = cat.icon;
+                      return (
+                        <div className={`prog-group-card ${cat.className}`} key={`${day.id}-${i}`}>
+                          <div className="prog-group-header">
+                            <div className="prog-group-icon">
+                              <CatIcon size={18} />
+                            </div>
+                            <div>
+                              <span className="prog-group-category">{cat.label}</span>
+                              <h4>{group.title}</h4>
+                              {group.venue && <p className="prog-group-venue">{group.venue}</p>}
+                            </div>
+                          </div>
+
+                          <ul className="prog-event-list">
+                            {group.events.map((ev, j) => (
+                              <li key={j}>
+                                <span className="prog-event-time">{ev.time}</span>
+                                <span className="prog-event-desc">{ev.desc}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </>
+          ) : (
+            <Reveal className="prog-coming-soon">
+              <div className="prog-coming-soon-icon">
+                <CalendarClock size={26} strokeWidth={1.5} />
+              </div>
+              <h3>Programação em breve</h3>
+              <p>
+                Os horários e atrações de cada dia estão sendo finalizados e serão divulgados
+                em breve. Fique de olho nas nossas redes.
+              </p>
+            </Reveal>
+          )}
+        </div>
+      </section>
+
+      {RODADAS_CONFIRMED && (
+        <>
+          <section className="prog-rodadas-intro section-padding">
+            <div className="site-container">
+              <Reveal className="section-header align-center">
+                <span className="section-tagline">Como Funciona</span>
+                <ScrollFloat>Rodadas de Negócios</ScrollFloat>
+                <p className="section-subtitle">
+                  Conversas certas, com as pessoas certas, no momento certo.
+                </p>
+              </Reveal>
+            </div>
+          </section>
+
+          {RODADAS_STEPS.map((step, i) => {
+            const Icon = step.icon;
+            return (
+              <section
+                key={step.title}
+                className={`prog-rodada-section${i % 2 === 1 ? ' alt-bg' : ''}`}
               >
-                {d.id === activeDay && (
-                  <motion.span
-                    layoutId="prog-day-tab-bg"
-                    className="prog-day-tab-bg"
-                    transition={{ type: 'spring', duration: 0.5, bounce: 0.2 }}
-                  />
-                )}
-                <span className="prog-day-tab-label">{d.label}</span>
-              </button>
-            ))}
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={day.id}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <div className="prog-day-header">
-                <span className="prog-day-date">{day.date}</span>
-                <h3>{day.heading}</h3>
-              </div>
-
-              <div className="prog-groups-grid">
-                {day.groups.map((group, i) => {
-                  const cat = CATEGORIES[group.category];
-                  const CatIcon = cat.icon;
-                  return (
-                    <div className={`prog-group-card ${cat.className}`} key={`${day.id}-${i}`}>
-                      <div className="prog-group-header">
-                        <div className="prog-group-icon">
-                          <CatIcon size={18} />
-                        </div>
-                        <div>
-                          <span className="prog-group-category">{cat.label}</span>
-                          <h4>{group.title}</h4>
-                          {group.venue && <p className="prog-group-venue">{group.venue}</p>}
-                        </div>
-                      </div>
-
-                      <ul className="prog-event-list">
-                        {group.events.map((ev, j) => (
-                          <li key={j}>
-                            <span className="prog-event-time">{ev.time}</span>
-                            <span className="prog-event-desc">{ev.desc}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
-
-      <section className="prog-rodadas-intro section-padding">
-        <div className="site-container">
-          <Reveal className="section-header align-center">
-            <span className="section-tagline">Como Funciona</span>
-            <ScrollFloat>Rodadas de Negócios</ScrollFloat>
-            <p className="section-subtitle">
-              Conversas certas, com as pessoas certas, no momento certo.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {RODADAS_STEPS.map((step, i) => {
-        const Icon = step.icon;
-        return (
-        <section
-          key={step.title}
-          className={`prog-rodada-section${i % 2 === 1 ? ' alt-bg' : ''}`}
-        >
-          <div className={`site-container prog-rodada-block${i % 2 === 1 ? ' reverse' : ''}`}>
-            <Reveal className="prog-rodada-visual">
-              <Icon className="prog-rodada-icon" strokeWidth={1} />
-            </Reveal>
-            <Reveal className="prog-rodada-content" delay={0.15}>
-              <ScrollFloat containerClassName="prog-rodada-title">{step.title}</ScrollFloat>
-              <p>{step.text}</p>
-            </Reveal>
-          </div>
-        </section>
-        );
-      })}
+                <div className={`site-container prog-rodada-block${i % 2 === 1 ? ' reverse' : ''}`}>
+                  <Reveal className="prog-rodada-visual">
+                    <Icon className="prog-rodada-icon" strokeWidth={1} />
+                  </Reveal>
+                  <Reveal className="prog-rodada-content" delay={0.15}>
+                    <ScrollFloat containerClassName="prog-rodada-title">{step.title}</ScrollFloat>
+                    <p>{step.text}</p>
+                  </Reveal>
+                </div>
+              </section>
+            );
+          })}
+        </>
+      )}
     </>
   );
 }

@@ -1422,6 +1422,35 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--bg-primary);
 }
 
+.prog-coming-soon {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.prog-coming-soon-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    border-radius: 14px;
+    background-color: rgba(184, 216, 50, 0.1);
+    color: var(--brand-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.prog-coming-soon h3 {
+    font-size: clamp(20px, 2.6vw, 26px);
+    margin-bottom: 12px;
+}
+
+.prog-coming-soon p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
 .prog-day-tabs {
     display: flex;
     justify-content: center;
