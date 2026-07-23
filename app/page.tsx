@@ -7,6 +7,7 @@ import Pilares from '@/components/sections/pilares';
 import Numeros from '@/components/sections/numeros';
 import Expositores from '@/components/sections/expositores';
 import Apoio from '@/components/sections/apoio';
+import MapaEvento from '@/components/sections/mapa-evento';
 import Contato from '@/components/sections/contato';
 import Footer from '@/components/sections/footer';
 import SiteInteractions from '@/components/site-interactions';
@@ -25,6 +26,7 @@ export default function Home() {
         <Numeros />
         <Expositores />
         <Apoio />
+        <MapaEvento />
         <Contato />
       </main>
       <Footer />

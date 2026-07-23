@@ -1000,6 +1000,65 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   MAPA DO EVENTO (3D venue walkthrough video)
+   ========================================================================== */
+
+.mapa-evento-section {
+    background-color: var(--bg-primary);
+    text-align: center;
+}
+
+.mapa-evento-video-box {
+    position: relative;
+    display: block;
+    margin: 48px auto 0;
+    max-width: 1040px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.mapa-evento-video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.mapa-evento-mute-btn {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--text-white);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: background-color 0.2s ease;
+}
+
+.mapa-evento-mute-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.mapa-evento-caption {
+    margin: 20px 0 0;
+    font-family: var(--font-poppins), sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+}
+
+/* ==========================================================================
    CONTATO (CTA FINAL)
    ========================================================================== */
 
