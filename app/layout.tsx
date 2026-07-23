@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import SmoothScroll from "@/components/smooth-scroll";
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={poppins.variable}>
       <body suppressHydrationWarning>
         <SmoothScroll>{children}</SmoothScroll>
+        <SpeedInsights />
       </body>
     </html>
   );
