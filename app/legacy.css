@@ -1197,17 +1197,22 @@ h1, h2, h3, h4, h5, h6 {
     width: auto;
 }
 
+/* Stacked rather than in a row: the sponsor wordmarks are wide, so side by
+   side they would push this column far past the other two and unbalance the
+   footer. Stacking also leaves room for more sponsors later. */
 .footer-patrocinios-logos {
     display: flex;
-    align-items: center;
-    gap: 20px;
-    min-height: 44px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
 }
 
 .footer-patrocinios-logos img {
-    height: 44px;
+    height: 34px;
     width: auto;
 }
+
+.footer-patrocinios-logos img.is-tall { height: 48px; }
 
 
 .footer-title {

@@ -20,7 +20,7 @@ const LOGOS = [
   { src: '/assets/telas-tex-expositor.svg', alt: 'Telas Tex', width: 140, height: 50 },
   { src: '/assets/galpao-brindes-expositor.svg', alt: 'Galpão Brindes', width: 140, height: 200, tall: true },
   { src: '/assets/invictuz-horse-expositor.webp', alt: 'Invictuz Horse', width: 140, height: 150, tall: true },
-  { src: '/assets/sindibones-expositor.webp', alt: 'Sindibonés', width: 140, height: 105, tall: true },
+  { src: '/assets/sindibones-logo.webp', alt: 'Sindibonés', width: 140, height: 105, tall: true },
   { src: '/assets/presente-de-deus-expositor.webp', alt: 'Presente de Deus', width: 140, height: 84, tall: true },
 ];
 // One pass already spans ~1700px — wider than the 1100px carousel — so a

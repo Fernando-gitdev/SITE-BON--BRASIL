@@ -62,7 +62,35 @@ export default function Footer() {
 
         <div>
           <h5 className="footer-title">Patrocínios</h5>
-          <div className="footer-patrocinios-logos"></div>
+          <div className="footer-patrocinios-logos">
+            <Image
+              src="/assets/banco-do-nordeste-patrocinador.svg"
+              alt="Banco do Nordeste"
+              width={125}
+              height={45}
+            />
+            <Image
+              src="/assets/fiern-patrocinador.webp"
+              alt="FIERN"
+              width={176}
+              height={45}
+            />
+            <Image
+              src="/assets/desenvolve-rn-patrocinador.svg"
+              alt="Agência Desenvolve RN"
+              width={215}
+              height={45}
+            />
+            {/* Badge lockup rather than a wide wordmark, so it needs extra
+                height to not read as much smaller than the others. */}
+            <Image
+              src="/assets/sindibones-logo.webp"
+              alt="Sindibonés"
+              width={61}
+              height={46}
+              className="is-tall"
+            />
+          </div>
         </div>
       </div>
 
