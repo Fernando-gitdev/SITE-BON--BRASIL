@@ -1,19 +1,20 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
+import { useLazyVideo } from '@/hooks/use-lazy-video';
 
 export default function MapaEvento() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useLazyVideo('/assets/video-mapa-evento.mp4');
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = muted;
     }
-  }, [muted]);
+  }, [muted, videoRef]);
 
   return (
     <section id="mapa-evento" aria-label="Mapa do evento" className="mapa-evento-section section-padding">
@@ -26,11 +27,10 @@ export default function MapaEvento() {
         <Reveal delay={0.15} className="mapa-evento-video-box">
           <video
             ref={videoRef}
-            src="/assets/video-mapa-evento.mp4"
-            autoPlay
             muted
             loop
             playsInline
+            preload="none"
           />
           <button
             type="button"

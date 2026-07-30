@@ -1,27 +1,27 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
+import { useLazyVideo } from '@/hooks/use-lazy-video';
 
 export default function SobreVideo() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useLazyVideo('/assets/video-secao-2.mp4');
   const [muted, setMuted] = useState(true);
 
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.muted = muted;
     }
-  }, [muted]);
+  }, [muted, videoRef]);
 
   return (
     <div className="relative h-full w-full">
       <video
         ref={videoRef}
-        src="/assets/video-secao-2.mp4"
-        autoPlay
         muted
         loop
         playsInline
+        preload="none"
         className="mx-auto h-full w-full rounded-2xl object-cover"
       />
       <button

@@ -509,9 +509,17 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--bg-surface);
 }
 
+/* Animated on the row (= two identical tracks) so one cycle advances by
+   exactly one track and the loop is seamless. See .expositores-row. */
 .tags-marquee-row {
     display: flex;
     width: max-content;
+    will-change: transform;
+    animation: marquee 28s linear infinite;
+}
+
+.tags-marquee-row:hover {
+    animation-play-state: paused;
 }
 
 .tags-marquee-track {
@@ -519,11 +527,6 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px;
     padding-right: 40px;
     white-space: nowrap;
-    animation: marquee 28s linear infinite;
-}
-
-.tags-marquee-track:hover {
-    animation-play-state: paused;
 }
 
 .tags-marquee-item {
@@ -578,22 +581,29 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-mask-image: linear-gradient(to right, transparent 0, #000 56px, #000 calc(100% - 56px), transparent 100%);
 }
 
+/* The row holds exactly two identical tracks, so translating the ROW by 50%
+   advances it by precisely one full track — the loop lands back on an
+   identical frame and the seam is invisible. Animating each track instead
+   (by 50% of its own width) only advances half a track, which lands
+   mid-sequence and snaps back visibly at the end of every cycle. */
 .expositores-row {
     display: flex;
     width: max-content;
+    will-change: transform;
 }
+
+/* Negative delays start each row part-way through its cycle, so the three
+   lanes never line up into columns — including on the very first frame. */
+.expositores-row.dir-a { animation: marquee-right 18s linear infinite; animation-delay: -3s; }
+.expositores-row.dir-b { animation: marquee 14s linear infinite; animation-delay: -7s; }
+.expositores-row.dir-c { animation: marquee-right 16s linear infinite; animation-delay: -11s; }
 
 .expositores-track {
     display: flex;
     align-items: center;
     gap: 44px;
     padding-right: 44px;
-    will-change: transform;
 }
-
-.expositores-track.dir-a { animation: marquee-right 32s linear infinite; }
-.expositores-track.dir-b { animation: marquee 24s linear infinite; }
-.expositores-track.dir-c { animation: marquee-right 28s linear infinite; }
 
 .expositores-logo {
     display: flex;
@@ -608,19 +618,22 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.85;
 }
 
+.expositores-logo.is-tall img { height: 50px; }
+
 @media (max-width: 900px) {
     .expositores-section { padding-top: 56px; }
     .expositores-carousel { gap: 16px; mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%); -webkit-mask-image: linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%); }
     .expositores-track { gap: 32px; padding-right: 32px; }
     .expositores-logo { height: 50px; }
     .expositores-logo img { height: 24px; }
-    .expositores-track.dir-a { animation-duration: 24s; }
-    .expositores-track.dir-b { animation-duration: 18s; }
-    .expositores-track.dir-c { animation-duration: 21s; }
+    .expositores-logo.is-tall img { height: 36px; }
+    .expositores-row.dir-a { animation-duration: 14s; }
+    .expositores-row.dir-b { animation-duration: 10s; }
+    .expositores-row.dir-c { animation-duration: 12s; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .expositores-track { animation: none; }
+    .expositores-row { animation: none; }
 }
 
 /* ==========================================================================

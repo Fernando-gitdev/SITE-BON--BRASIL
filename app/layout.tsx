@@ -8,7 +8,9 @@ import "./globals.css";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  // 300 dropped: nothing in the site renders at that weight, and each weight
+  // is a separate font file to download. 400 stays as the body default.
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
