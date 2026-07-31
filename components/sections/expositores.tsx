@@ -18,6 +18,8 @@ const LOGOS = [
   { src: '/assets/supricaps-logo.webp', alt: 'Supricaps', width: 140, height: 28 },
   { src: '/assets/santa-clara-expositor.svg', alt: 'Gráfica Santa Clara', width: 140, height: 95, tall: true },
   { src: '/assets/telas-tex-expositor.svg', alt: 'Telas Tex', width: 140, height: 50 },
+  { src: '/assets/sebrae-expositor.svg', alt: 'Sebrae', width: 140, height: 77 },
+  { src: '/assets/costura-fina-expositor.webp', alt: 'Costura Fina', width: 140, height: 179, tall: true },
   { src: '/assets/galpao-brindes-expositor.svg', alt: 'Galpão Brindes', width: 140, height: 200, tall: true },
   { src: '/assets/invictuz-horse-expositor.webp', alt: 'Invictuz Horse', width: 140, height: 150, tall: true },
   { src: '/assets/sindibones-logo.webp', alt: 'Sindibonés', width: 140, height: 105, tall: true },
