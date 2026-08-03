@@ -18,14 +18,21 @@ const LOGOS = [
   { src: '/assets/supricaps-logo.webp', alt: 'Supricaps', width: 140, height: 28 },
   { src: '/assets/santa-clara-expositor.svg', alt: 'Gráfica Santa Clara', width: 140, height: 95, tall: true },
   { src: '/assets/telas-tex-expositor.svg', alt: 'Telas Tex', width: 140, height: 50 },
-  { src: '/assets/sebrae-expositor.svg', alt: 'Sebrae', width: 140, height: 77 },
   { src: '/assets/lola-expositor.svg', alt: 'Lola Soluções Têxteis', width: 140, height: 56 },
   { src: '/assets/fenix-expositor.webp', alt: 'Fênix Personalizados', width: 140, height: 113, tall: true },
   { src: '/assets/costura-fina-expositor.webp', alt: 'Costura Fina', width: 140, height: 179, tall: true },
   { src: '/assets/galpao-brindes-expositor.svg', alt: 'Galpão Brindes', width: 140, height: 200, tall: true },
   { src: '/assets/invictuz-horse-expositor.webp', alt: 'Invictuz Horse', width: 140, height: 150, tall: true },
   { src: '/assets/sindibones-logo.webp', alt: 'Sindibonés', width: 140, height: 105, tall: true },
-  { src: '/assets/presente-de-deus-expositor.webp', alt: 'Presente de Deus', width: 140, height: 84, tall: true },
+  { src: '/assets/presente-de-deus-expositor.svg', alt: 'Confecções Presente de Deus', width: 140, height: 136, tall: true },
+  { src: '/assets/rapido-figueiredo-expositor.svg', alt: 'Rápido Figueiredo', width: 140, height: 36 },
+  { src: '/assets/schulz-expositor.svg', alt: 'Schulz Compressores', width: 140, height: 40 },
+  { src: '/assets/seubone-expositor.svg', alt: 'SeuBoné', width: 140, height: 35 },
+  { src: '/assets/weevo-expositor.webp', alt: 'Weevo', width: 140, height: 28 },
+  { src: '/assets/dgnet-expositor.webp', alt: 'DGnet Internet Rápida', width: 140, height: 53 },
+  { src: '/assets/carbone-educacao-expositor.webp', alt: 'Carbone Educação', width: 140, height: 46 },
+  { src: '/assets/armazem-zezao-expositor.svg', alt: 'Armazém Zezão', width: 140, height: 82, tall: true },
+  { src: '/assets/desenvolve-rn-expositor.svg', alt: 'Agência Desenvolve RN', width: 140, height: 26 },
 ];
 // One pass already spans ~1700px — wider than the 1100px carousel — so a
 // single repeat per track is enough for the duplicated tracks to loop
