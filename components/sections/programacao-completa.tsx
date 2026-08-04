@@ -6,14 +6,13 @@ import { Flag, Music, Presentation, Handshake, Palette, UtensilsCrossed, FerrisW
 import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
 
-// Day-by-day schedule (times, speakers, attractions) isn't officially
-// confirmed yet — keep the data/rendering below intact so it's a one-line
-// flip once it is, but show a placeholder in the meantime instead of
-// publishing unconfirmed info.
-const SCHEDULE_CONFIRMED = false;
+// Day-by-day schedule below mirrors the official "Programação Geral" PDF.
+// Flip to false to fall back to the "em breve" placeholder.
+const SCHEDULE_CONFIRMED = true;
 
-// Same idea: hide the "Rodadas de Negócios" explainer for now without
-// deleting it — flip back to true whenever it should go live again.
+// The "Rodadas de Negócios" explainer is parked while its content is
+// decided. false renders nothing at all (not even a placeholder); the
+// section itself is kept intact below so it's a one-line flip to restore.
 const RODADAS_CONFIRMED = false;
 
 type CategoryKey = 'abertura' | 'cultural' | 'summit' | 'negocios';
@@ -109,8 +108,8 @@ const DAYS: DaySchedule[] = [
         title: 'Programação Cultural',
         venue: 'Praça Senador Dinarte Mariz',
         events: [
-          { time: '19h', desc: 'Apresentação da Banda de Música da cidade' },
-          { time: '21h', desc: 'Show de Cleiton Pinheiro' },
+          { time: '18h30', desc: 'Filarmônica Doutor Ruy Pereira dos Santos' },
+          { time: '21h', desc: 'Cleiton Pinheiro' },
         ],
       },
       {
@@ -118,19 +117,11 @@ const DAYS: DaySchedule[] = [
         title: 'Boné Brasil Summit',
         venue: 'Auditório entre a Casa de Cultura e o Centro Pastoral',
         events: [
-          { time: '19h', desc: 'Palestra dos Correios' },
-          { time: '20h', desc: 'Palestra do Sindicato dos Bonés' },
-        ],
-      },
-      {
-        category: 'negocios',
-        title: 'Rodada de Negócios Nacional',
-        venue: 'Casa de Cultura',
-        events: [
-          {
-            time: '20h',
-            desc: 'Rodada de negócios nacional: tecidos, aviamentos e insumos da cadeia produtiva',
-          },
+          { time: '18h30', desc: 'Credenciamento' },
+          { time: '19h', desc: 'Abertura Oficial da Boné Brasil Summit' },
+          { time: '19h15', desc: 'Programa de Qualificação para Exportação (PEIEX), por Marcelo Martins' },
+          { time: '20h', desc: 'Correios conectando sua marca ao Brasil e ao mundo, por Lauriceya Nóbrega e Wesley Raphael' },
+          { time: '20h45', desc: 'Impactos da Reforma Tributária no Setor Boneleiro, por Marcos Airton Ramos Xavier' },
         ],
       },
     ],
@@ -152,20 +143,11 @@ const DAYS: DaySchedule[] = [
         title: 'Boné Brasil Summit',
         venue: 'Auditório entre a Casa de Cultura e o Centro Pastoral',
         events: [
-          { time: '17h', desc: 'Palestra sobre Inteligência Artificial: Sebrae' },
-          { time: '19h', desc: 'Palestra: Reforma Tributária' },
-          { time: '20h', desc: 'Palestra Magna' },
-        ],
-      },
-      {
-        category: 'negocios',
-        title: 'Rodada de Negócios Internacional',
-        venue: 'Casa de Cultura',
-        events: [
-          {
-            time: '20h',
-            desc: 'Rodada de negócios internacional: segmento a definir, como tecidos, aviamentos e insumos da cadeia produtiva',
-          },
+          { time: '08h às 18h', desc: 'Oficina: Unidade Móvel de Inteligência Artificial e Tecnologia' },
+          { time: '08h30 às 13h', desc: 'Workshop Seridó Circular. Do resíduo ao mercado: soluções circulares para as bonelarias do Seridó' },
+          { time: '18h', desc: 'Acesso ao crédito para micro e pequenas empresas, por Banco do Nordeste' },
+          { time: '19h', desc: 'Mapa da Expansão Empresarial: os 4 pilares para construir empresas que crescem sem depender do dono, por Jean Valério' },
+          { time: '20h', desc: 'Ninguém Acorda Querendo Infraestrutura, por Thiago Reis' },
         ],
       },
       {
@@ -173,11 +155,11 @@ const DAYS: DaySchedule[] = [
         title: 'Programação Cultural',
         venue: 'Praça Senador Dinarte Mariz',
         events: [
-          { time: '18h', desc: 'Apresentação de grupo de capoeira' },
-          { time: '18h30', desc: 'Apresentação do grupo de flauta doce' },
-          { time: '20h', desc: 'Boné Brasil Fashion: Concurso do Boné' },
-          { time: '21h', desc: 'Show de Arnaldinho Neto' },
-          { time: '23h', desc: 'Show de Áureo Deni' },
+          { time: '18h', desc: 'Grupo de Capoeira Ginga Neném' },
+          { time: '18h30', desc: 'Grupo Flauta Doce' },
+          { time: '21h', desc: 'Boné Brasil Fashion: Concurso do Boné' },
+          { time: '22h', desc: 'Arnaldinho Neto' },
+          { time: '00h', desc: 'Áureo Deni' },
         ],
       },
     ],
@@ -199,32 +181,28 @@ const DAYS: DaySchedule[] = [
         title: 'Boné Brasil Summit',
         venue: 'Auditório entre a Casa de Cultura e o Centro Pastoral',
         events: [
-          { time: '16h', desc: 'Oficina de confecção com materiais reaproveitados' },
-          { time: '16h', desc: 'Palestra do Instituto IMOA: Sustentabilidade' },
-          { time: '17h', desc: 'Palestra: Tráfego Pago' },
-          { time: '18h', desc: 'Palestra: Acesso ao Crédito' },
-          { time: '19h', desc: 'Palestra: Exportação e Importação' },
-          { time: '20h', desc: 'Palestra Magna' },
+          { time: '08h às 12h', desc: 'Oficina: Unidade Móvel de Inteligência Artificial e Tecnologia' },
+          { time: '21h30', desc: 'Coquetel de Networking Boné Brasil' },
         ],
       },
       {
         category: 'negocios',
         title: 'Rodada de Negócios',
         venue: 'Casa de Cultura',
-        events: [{ time: '19h', desc: 'Rodada de negócios: Máquinas' }],
+        events: [{ time: '18h', desc: 'Rodada Nacional de Negócios da Cadeia Produtiva do Boné' }],
       },
       {
         category: 'cultural',
         title: 'Programação Cultural',
+        venue: 'Praça Senador Dinarte Mariz',
         events: [
-          { time: '08h', desc: 'Vem pra Feira: café da manhã no Mercado Público' },
+          { time: '08h', desc: 'Vem pra Feira: café da manhã no mercado público' },
           { time: '12h', desc: 'Encontro de Carros Antigos' },
-          { time: '17h', desc: 'Inauguração do painel em grafite "Serra Negra do Norte: a terra do Boné"' },
-          { time: '18h', desc: 'DJ TMF' },
-          { time: '20h', desc: 'Desfile Boné Brasil Fashion: Desfile do Boné' },
-          { time: '22h30', desc: 'Cerimônia de encerramento' },
-          { time: '23h', desc: 'Show de Elayne Tyne' },
-          { time: '01h', desc: 'Show de Deixe de Brincadeira' },
+          { time: '18h30', desc: 'DJ TMF' },
+          { time: '19h30', desc: 'Boné Brasil Fashion: Desfile do Boné' },
+          { time: '21h', desc: 'Cerimônia de encerramento' },
+          { time: '23h', desc: 'Elayne Tyne' },
+          { time: '01h', desc: 'Deixe de Brincadeira' },
         ],
       },
     ],
@@ -367,7 +345,7 @@ export default function ProgramacaoCompleta() {
         </div>
       </section>
 
-      {RODADAS_CONFIRMED ? (
+      {RODADAS_CONFIRMED && (
         <>
           <section className="prog-rodadas-intro section-padding">
             <div className="site-container">
@@ -401,21 +379,6 @@ export default function ProgramacaoCompleta() {
             );
           })}
         </>
-      ) : (
-        <section className="prog-schedule-section section-padding">
-          <div className="site-container">
-            <Reveal className="prog-coming-soon">
-              <div className="prog-coming-soon-icon">
-                <Handshake size={26} strokeWidth={1.5} />
-              </div>
-              <h3>Rodada de negócios em breve</h3>
-              <p>
-                Os detalhes de como funcionarão as rodadas de negócios estão sendo finalizados
-                e serão divulgados em breve.
-              </p>
-            </Reveal>
-          </div>
-        </section>
       )}
     </>
   );
