@@ -49,7 +49,9 @@ export default function Footer() {
               <Link href={resolveHref('#expositores')}>Expositores</Link>
             </li>
             <li>
-              <Link href="/programacao">Programação</Link>
+              <a href="https://selobonebrasil.com" target="_blank" rel="noopener noreferrer">
+                Selo Boné Brasil
+              </a>
             </li>
             <li>
               <Link href="/hospedagens">Hospedagens</Link>

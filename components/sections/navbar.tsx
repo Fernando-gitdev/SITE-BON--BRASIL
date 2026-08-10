@@ -9,7 +9,7 @@ import { WHATSAPP_URL } from '@/lib/whatsapp';
 const NAV_LINKS = [
   { href: '#apresentacao', label: 'O Evento' },
   { href: '#expositores', label: 'Expositores' },
-  { href: '/programacao', label: 'Programação' },
+  { href: 'https://selobonebrasil.com', label: 'Selo Boné Brasil', external: true },
   { href: '/hospedagens', label: 'Hospedagens' },
   { href: 'https://maps.app.goo.gl/TBdPRiy9hBr3Mayi7', label: 'Localização', external: true },
   { href: '#contato', label: 'Contato' },
@@ -21,7 +21,7 @@ export default function Navbar() {
   const onHome = pathname === '/';
 
   // Hash links only resolve on the home page — from any other route
-  // (e.g. /programacao) they need the leading "/" so Next navigates back
+  // (e.g. /hospedagens) they need the leading "/" so Next navigates back
   // to home first, then the browser scrolls to the anchor.
   const resolveHref = (href: string) => (href.startsWith('#') && !onHome ? `/${href}` : href);
 
