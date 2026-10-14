@@ -1,12 +1,11 @@
 const TAGS = [
-  'Fabricantes',
-  'Fornecedores',
-  'Compradores e Lojistas',
-  'Instituições Financeiras',
-  'Entidades de Apoio',
-  'Prestadores de Serviço',
-  'Investidores',
-  'Distribuidores',
+  'Regularidade Fiscal',
+  'Regularidade Jurídica',
+  'Capacidade Produtiva',
+  'Reputação',
+  'Confiabilidade Comercial',
+  'Empresas Certificadas',
+  'Compra Segura',
 ];
 
 function Track({ hidden }: { hidden?: boolean }) {
@@ -24,7 +23,7 @@ function Track({ hidden }: { hidden?: boolean }) {
 
 export default function Marquee() {
   return (
-    <section aria-label="Quem participa" className="tags-marquee-section">
+    <section aria-label="O que o selo atesta" className="tags-marquee-section">
       <div className="tags-marquee-row">
         <Track />
         <Track hidden />

@@ -15,24 +15,25 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: "BONÉ BRASIL 2026: Feira Nacional da Cadeia Produtiva do Boné",
+  title: "Selo Boné Brasil: Selo de Qualidade da Cadeia Produtiva do Boné",
   description:
-    "A BONÉ BRASIL 2026 conecta o polo produtivo do boné ao mercado nacional, fortalecendo negócios, gerando oportunidades e consolidando Serra Negra do Norte/RN como referência no segmento.",
+    "O Selo Boné Brasil certifica as empresas do polo boneleiro de Serra Negra do Norte/RN com regularidade fiscal e jurídica, capacidade produtiva, reputação e confiabilidade comercial.",
   keywords: [
-    "boné brasil 2026",
-    "feira do bone",
+    "selo boné brasil",
+    "selo de qualidade",
+    "certificação de empresas",
+    "boné brasil",
     "polo boneleiro",
     "serra negra do norte",
-    "industria textil",
-    "moda",
-    "rodada de negocios",
+    "fábrica de bonés",
+    "fornecedor de bonés confiável",
   ],
-  authors: [{ name: "BONÉ BRASIL 2026" }],
+  authors: [{ name: "BONÉ BRASIL" }],
   openGraph: {
     type: "website",
-    title: "BONÉ BRASIL 2026: Feira Nacional do Boné",
+    title: "Selo Boné Brasil: compre de quem produz de verdade",
     description:
-      "A feira nacional que conecta o polo de Serra Negra do Norte ao mercado. Participe de rodadas de negócios, palestras e workshops.",
+      "A certificação que identifica as empresas do polo do boné com regularidade, capacidade produtiva e reputação comprovadas.",
     images: ["/assets/bg-secao1.png"],
   },
 };

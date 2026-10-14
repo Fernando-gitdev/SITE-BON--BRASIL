@@ -2,57 +2,57 @@ import PinnedCardStack from '@/components/ui/pinned-card-stack';
 import Reveal from '@/components/ui/reveal';
 import ScrollFloat from '@/components/ui/scroll-float';
 
-const PILARES = [
+const CRITERIOS = [
   {
     n: '01',
-    title: 'Exposição de Produtos e Tendências',
-    desc: 'Os últimos lançamentos em bonés, tecidos e bordados, apresentados pelas próprias fábricas do polo.',
+    title: 'Regularidade Fiscal',
+    desc: 'Empresa em dia com as obrigações fiscais, emitindo nota e operando dentro da lei.',
   },
   {
     n: '02',
-    title: 'Rodadas de Negócios',
-    desc: 'Fabricantes e compradores fechando negócio diretamente, sem intermediação.',
+    title: 'Regularidade Jurídica',
+    desc: 'Empresa formalmente constituída, com CNPJ ativo e situação legal regular.',
   },
   {
     n: '03',
-    title: 'Capacitação & Painéis Temáticos',
-    desc: 'Especialistas em moda, exportação e vendas digitais, no mesmo palco de quem produz.',
+    title: 'Capacidade Produtiva',
+    desc: 'Estrutura real de produção: fábrica, equipamentos e equipe para entregar o que vende.',
   },
   {
     n: '04',
-    title: 'Inovação & Tecnologia',
-    desc: 'Máquinas, tecidos e processos que vão definir a próxima temporada do setor.',
+    title: 'Reputação',
+    desc: 'Histórico no mercado e no polo que comprova a seriedade do negócio.',
   },
   {
     n: '05',
-    title: 'Crédito & Fomento',
-    desc: 'Instituições financeiras e entidades de apoio prontas pra financiar o próximo passo da sua fábrica.',
+    title: 'Confiabilidade Comercial',
+    desc: 'Compromisso com prazo, qualidade e tudo o que foi combinado com o cliente.',
   },
 ];
 
 export default function Pilares() {
   return (
-    <section id="pilares" aria-label="O que você vai encontrar" className="pilares-section">
+    <section id="criterios" aria-label="Critérios do selo" className="pilares-section">
       <div className="pilares-intro">
         <Reveal className="section-header">
           <h2 className="pilares-heading">
             <ScrollFloat as="span" containerClassName="pilares-heading-line">
-              Cinco frentes,
+              Cinco critérios,
             </ScrollFloat>
             <ScrollFloat as="span" containerClassName="pilares-heading-line">
-              um só encontro de negócios
+              um só selo de confiança
             </ScrollFloat>
           </h2>
         </Reveal>
       </div>
 
       <PinnedCardStack>
-        {PILARES.map((p) => (
-          <div className="pilar-card" key={p.n}>
-            <span className="pilar-index">{p.n}</span>
+        {CRITERIOS.map((c) => (
+          <div className="pilar-card" key={c.n}>
+            <span className="pilar-index">{c.n}</span>
             <div>
-              <h3>{p.title}</h3>
-              <p>{p.desc}</p>
+              <h3>{c.title}</h3>
+              <p>{c.desc}</p>
             </div>
           </div>
         ))}

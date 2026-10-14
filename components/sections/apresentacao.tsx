@@ -1,17 +1,17 @@
 import Reveal from '@/components/ui/reveal';
-import { WHATSAPP_URL } from '@/lib/whatsapp';
-import SobreVideo from './sobre-video';
+import SeloBadge from '@/components/ui/selo-badge';
+import { SELO_CADASTRO_URL } from '@/lib/selo';
 
 const WORDS = [
-  { text: 'Potência', muted: false },
-  { text: 'local.', muted: false },
-  { text: 'Conexão', muted: true },
-  { text: 'nacional.', muted: true },
+  { text: 'Qualidade', muted: false },
+  { text: 'comprovada.', muted: false },
+  { text: 'Negócio', muted: true },
+  { text: 'seguro.', muted: true },
 ];
 
 export default function Apresentacao() {
   return (
-    <section id="apresentacao" aria-label="Apresentação" className="apresentacao-section">
+    <section id="selo" aria-label="O Selo Boné Brasil" className="apresentacao-section">
       <h2 className="apresentacao-heading">
         {WORDS.map((w, i) => (
           <Reveal
@@ -26,45 +26,46 @@ export default function Apresentacao() {
 
       <Reveal delay={0.3}>
         <p className="apresentacao-lead">
-          A BONÉ BRASIL 2026 transforma a capacidade produtiva do polo em
-          negócio, rodadas comerciais e visibilidade nacional.
+          O selo que separa quem tem fábrica, nota e palavra de quem só tem um
+          perfil na internet.
         </p>
       </Reveal>
 
-      <Reveal delay={0.45}>
-        <div className="apresentacao-video-box">
-          <SobreVideo />
-        </div>
-        <p className="apresentacao-video-caption">Serra Negra do Norte/RN · vídeo institucional</p>
-      </Reveal>
+      <div className="selo-overview">
+        <Reveal delay={0.4} className="selo-overview-badge">
+          <SeloBadge ringId="selo-badge-ring-sobre" />
+        </Reveal>
 
-      <Reveal delay={0.5}>
-        <div className="apresentacao-info">
-          <h3 className="apresentacao-info-title">Sobre o Evento</h3>
-          <p>
-            A Boné Brasil 2026 é a 2ª edição da Feira Nacional da Cadeia Produtiva do Boné,
-            realizada de 06 a 08 de agosto, em Serra Negra do Norte/RN.
-          </p>
-          <p>
-            O evento reúne fabricantes, fornecedores, compradores, instituições e visitantes
-            em uma programação com feira de negócios, palestras, rodadas comerciais, moda,
-            cultura, artesanato e gastronomia.
-          </p>
-          <p>
-            Mais do que uma feira, a Boné Brasil fortalece a indústria local, gera
-            oportunidades e projeta Serra Negra do Norte para todo o país.
-          </p>
-        </div>
-      </Reveal>
+        <Reveal delay={0.5}>
+          <div className="apresentacao-info">
+            <h3 className="apresentacao-info-title">Sobre o Selo</h3>
+            <p>
+              O Selo Boné Brasil é a certificação de qualidade da cadeia produtiva do boné.
+              Ele identifica as empresas do polo que cumprem critérios de regularidade fiscal
+              e jurídica, capacidade produtiva, reputação e confiabilidade comercial.
+            </p>
+            <p>
+              A iniciativa nasceu depois de relatos de golpes, fraudes e negociações feitas
+              por empresas ou perfis sem estrutura produtiva. Com o selo, quem compra sabe
+              com quem está negociando.
+            </p>
+            <p>
+              Desenvolvido pela F7 Produções, organizadora da feira Boné Brasil, em parceria
+              com a Prefeitura de Serra Negra do Norte/RN, o selo foi lançado na 2ª edição
+              da feira, em agosto de 2026.
+            </p>
+          </div>
+        </Reveal>
+      </div>
 
       <Reveal delay={0.6}>
         <a
-          href={WHATSAPP_URL}
+          href={SELO_CADASTRO_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-primary apresentacao-cta"
         >
-          <span>Entrar em contato</span>
+          <span>Solicitar o selo</span>
           <div className="btn-glow-effect"></div>
         </a>
       </Reveal>

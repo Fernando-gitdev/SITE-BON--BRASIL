@@ -67,13 +67,13 @@ export default function Expositores() {
     <section id="expositores" aria-label="Expositores" className="expositores-section section-padding">
       <div className="site-container">
         <Reveal className="section-header align-center">
-          <span className="expositores-eyebrow">Expositores confirmados</span>
+          <span className="expositores-eyebrow">Expositores 2026</span>
           <h2 className="expositores-heading">
             <ScrollFloat as="span" containerClassName="expositores-heading-line">
-              Marcas que já confirmaram
+              Marcas que estiveram
             </ScrollFloat>
             <ScrollFloat as="span" containerClassName="expositores-heading-line">
-              presença na feira
+              na Boné Brasil 2026
             </ScrollFloat>
           </h2>
         </Reveal>

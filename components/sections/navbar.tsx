@@ -4,14 +4,13 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { WHATSAPP_URL } from '@/lib/whatsapp';
+import { SELO_CADASTRO_URL } from '@/lib/selo';
 
-const NAV_LINKS = [
-  { href: '#apresentacao', label: 'O Evento' },
-  { href: '#expositores', label: 'Expositores' },
-  { href: 'https://selobonebrasil.com', label: 'Selo Boné Brasil', external: true },
-  { href: '/hospedagens', label: 'Hospedagens' },
-  { href: 'https://maps.app.goo.gl/TBdPRiy9hBr3Mayi7', label: 'Localização', external: true },
+const NAV_LINKS: { href: string; label: string; external?: boolean }[] = [
+  { href: '#selo', label: 'O Selo' },
+  { href: '#criterios', label: 'Critérios' },
+  { href: '#como-funciona', label: 'Como funciona' },
+  { href: '#feira', label: 'A Feira' },
   { href: '#contato', label: 'Contato' },
 ];
 
@@ -64,23 +63,23 @@ export default function Navbar() {
             )
           )}
           <a
-            href={WHATSAPP_URL}
+            href={SELO_CADASTRO_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-link btn-nav-cta nav-cta-mobile"
             onClick={() => setMenuOpen(false)}
           >
-            Garantir Vaga
+            Solicitar Selo
           </a>
         </nav>
 
         <a
-          href={WHATSAPP_URL}
+          href={SELO_CADASTRO_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="nav-link btn-nav-cta nav-cta-desktop"
         >
-          Garantir Vaga
+          Solicitar Selo
         </a>
 
         <button

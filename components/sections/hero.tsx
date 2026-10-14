@@ -2,14 +2,12 @@ import Image from 'next/image';
 import TextType from '@/components/ui/text-type';
 import SplitText from '@/components/ui/split-text';
 import HeroBgVideo from './hero-bg-video';
-import { buildWhatsAppUrl } from '@/lib/whatsapp';
+import { SELO_CADASTRO_URL } from '@/lib/selo';
 
-const HERO_TITLE_START = 'Conectamos o polo produtivo ';
-const HERO_TITLE_ACCENT = 'ao mercado nacional.';
+const HERO_TITLE_START = 'Compre de quem ';
+const HERO_TITLE_ACCENT = 'produz de verdade.';
 const HERO_TYPING_SPEED = 45;
 const HERO_SUBTITLE_DELAY = 350;
-
-const HERO_CTA_MESSAGE = 'Olá! Quero participar das rodadas de negócios da Boné Brasil 2026.';
 
 export default function Hero() {
   return (
@@ -25,6 +23,7 @@ export default function Hero() {
           height={329}
           priority
         />
+        <span className="section-tagline hero-tagline">Selo de Qualidade</span>
         <h1 className="hero-title">
           <TextType
             text={[HERO_TITLE_START]}
@@ -46,7 +45,7 @@ export default function Hero() {
         </h1>
         <div className="hero-subtitle-wrap">
           <SplitText
-            text="Fabricantes, fornecedores, compradores e investidores, todos em um só lugar."
+            text="O Selo Boné Brasil certifica as empresas do polo que comprovam regularidade, capacidade produtiva e reputação no mercado."
             tag="p"
             className="hero-subtitle"
             startDelay={HERO_SUBTITLE_DELAY}
@@ -58,15 +57,20 @@ export default function Hero() {
           />
         </div>
 
-        <a
-          href={buildWhatsAppUrl(HERO_CTA_MESSAGE)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-primary hero-cta"
-        >
-          <span>Quero participar das rodadas de negócios</span>
-          <div className="btn-glow-effect"></div>
-        </a>
+        <div className="hero-cta-group">
+          <a
+            href={SELO_CADASTRO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary"
+          >
+            <span>Solicitar o selo</span>
+            <div className="btn-glow-effect"></div>
+          </a>
+          <a href="#como-funciona" className="btn btn-secondary">
+            Como funciona
+          </a>
+        </div>
       </div>
     </section>
   );

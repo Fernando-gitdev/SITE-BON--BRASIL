@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SELO_CADASTRO_URL, SELO_LOGIN_URL } from '@/lib/selo';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export default function Footer() {
             />
           </Link>
           <p className="footer-desc">
-            O maior encontro da cadeia produtiva do boné no Brasil.
+            O selo de qualidade da cadeia produtiva do boné, criado pela feira Boné Brasil.
           </p>
 
           <div className="footer-realizacao">
@@ -43,18 +44,26 @@ export default function Footer() {
           <h5 className="footer-title">Navegação</h5>
           <ul className="footer-links">
             <li>
-              <Link href={resolveHref('#apresentacao')}>O Evento</Link>
+              <Link href={resolveHref('#selo')}>O Selo</Link>
             </li>
             <li>
-              <Link href={resolveHref('#expositores')}>Expositores</Link>
+              <Link href={resolveHref('#criterios')}>Critérios</Link>
             </li>
             <li>
-              <a href="https://selobonebrasil.com" target="_blank" rel="noopener noreferrer">
-                Selo Boné Brasil
+              <Link href={resolveHref('#como-funciona')}>Como funciona</Link>
+            </li>
+            <li>
+              <Link href={resolveHref('#feira')}>A Feira 2026</Link>
+            </li>
+            <li>
+              <a href={SELO_CADASTRO_URL} target="_blank" rel="noopener noreferrer">
+                Solicitar o selo
               </a>
             </li>
             <li>
-              <Link href="/hospedagens">Hospedagens</Link>
+              <a href={SELO_LOGIN_URL} target="_blank" rel="noopener noreferrer">
+                Área da empresa
+              </a>
             </li>
             <li>
               <Link href={resolveHref('#contato')}>Contato</Link>

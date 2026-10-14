@@ -4,7 +4,7 @@ export function buildWhatsAppUrl(message: string) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
-export const WHATSAPP_URL = buildWhatsAppUrl('Olá, quero adquirir meu espaço na feira');
+export const WHATSAPP_URL = buildWhatsAppUrl('Olá! Quero saber mais sobre o Selo Boné Brasil.');
 
 /** Builds a wa.me link for an arbitrary Brazilian phone number, e.g. "(84) 99618-1873". */
 export function buildWhatsAppUrlForPhone(phone: string, message: string) {
