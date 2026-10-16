@@ -46,18 +46,25 @@ export default function HeroBgVideo() {
     };
   }, []);
 
+  // Two encodes of the same footage (no audio, faststart): a 1280×720 one for
+  // wide screens and a 540×960 center crop for phones, which with
+  // object-fit: cover only ever show that middle strip anyway. The landscape
+  // source goes first and carries the media query, so browsers that ignore
+  // `media` on <source> still fall back to a version that fits any screen.
   return (
     <video
       ref={videoRef}
       className="hero-bg-video"
-      src="/assets/video-bg-secao1.mp4"
-      poster="/assets/hero-poster.webp"
+      poster="/assets/video-hero-poster.webp"
       autoPlay
       muted
       loop
       playsInline
       preload="auto"
       aria-hidden="true"
-    />
+    >
+      <source src="/assets/video-hero-desktop.mp4" type="video/mp4" media="(min-width: 769px)" />
+      <source src="/assets/video-hero-mobile.mp4" type="video/mp4" />
+    </video>
   );
 }
